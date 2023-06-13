@@ -1,0 +1,27 @@
+.notes {
+    border: solid black 1px;
+    height: 40%;
+    margin-top: 20px;
+    padding: 20px;
+
+}
+
+.custom-card {
+    height: 300px;
+    margin-top: 20px;
+    width: 30%;
+    min-width: 400px;
+    margin-bottom: 20px;
+    display: block;
+    overflow-y: scroll;
+    margin-left: 40px;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.add-new-note {
+    border: solid black 1px;
+    height: 40%;
+    padding: 20px;
+}

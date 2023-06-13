@@ -1,0 +1,7 @@
+.custom-card {
+    height: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+    overflow-y: scroll;
+}
