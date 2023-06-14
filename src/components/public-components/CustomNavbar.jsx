@@ -18,7 +18,7 @@ const CustomNavbar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/" className="nav-link active">
+            <Link to="/" className="nav-link ">
               Home
             </Link>
 
@@ -30,18 +30,21 @@ const CustomNavbar = () => {
             </Link>
             <NavDropdown title="Admin" id="collasible-nav-dropdown">
               <NavDropdown.Item>
-                <Link to="/" className="nav-link">
+                <Link
+                  to="/admin"
+                  className="nav-link text-dark"
+                >
+                  Home Content Management
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link to="/" className="nav-link text-dark">
                   Student Management
                 </Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link to="/" className="nav-link">
+                <Link to="/" className="nav-link text-dark">
                   Teacher Management
-                </Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link to="/" className="nav-link">
-                  Home Content Management
                 </Link>
               </NavDropdown.Item>
             </NavDropdown>

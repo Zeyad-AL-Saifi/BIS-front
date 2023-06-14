@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/profile/profile.css";
+import "../components/profile-components/profile.css";
 import StudentBody from "../components/StudentBody";
 
 const StudentView = () => {

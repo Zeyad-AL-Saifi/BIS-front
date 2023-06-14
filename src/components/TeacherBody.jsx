@@ -1,9 +1,9 @@
 import React from "react";
+import ProfileInfo from "./profile-components/ProfileInfo";
 import NotesCome from "./profile-components/NotesCome";
 import FormSendNotes from "./profile-components/FormSendNotes";
-import ProfileInfo from "./profile-components/ProfileInfo";
 
-const StudentBody = () => {
+const TeacherBody = () => {
   return (
     <div>
       <div className="col">
@@ -15,4 +15,4 @@ const StudentBody = () => {
   );
 };
 
-export default StudentBody;
+export default TeacherBody;
