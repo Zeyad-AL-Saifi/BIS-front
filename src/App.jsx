@@ -12,7 +12,7 @@ import Help from "./views/Help";
 import TeacherManagement from "./views/admin-views/TeacherManagement";
 import StudentManagement from "./views/admin-views/StudentManagement";
 
-const App = () => {
+const App = (props) => {
   return (
     <Router>
       <Header />
@@ -22,12 +22,21 @@ const App = () => {
         <Route path="/student" element={<StudentView />} />
         <Route path="/teacher" element={<TeacherView />} />
         <Route path="/admin" element={<Admin />}>
-          <Route path="/teachermanagement" component={<TeacherManagement />} />
-          <Route path="/homecontentmanagment" component={<HomeManagement />} />
-          <Route path="/studentmanagement" component={<StudentManagement />} />
+        <Route index element={<HomeManagement />} />
+          <Route
+            path="teachermanagement"
+            element={<TeacherManagement />}
+          />
+          <Route
+            path="homecontentmanagement"
+            element={<HomeManagement />}
+          />
+          <Route
+            path="studentmanagement"
+            element={<StudentManagement />}
+          />
         </Route>
         <Route path="/help" element={<Help />} />
-        <Route path="/homecontentmanagment" element={<HomeManagement />} />
       </Routes>
       <Footer />
     </Router>

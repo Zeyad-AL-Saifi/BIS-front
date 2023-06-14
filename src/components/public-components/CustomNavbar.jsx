@@ -32,8 +32,7 @@ const CustomNavbar = () => {
               <NavDropdown.Item>
                 <Link
                   to="/admin"
-                  className="nav-link text-dark"
-                >
+                  className="nav-link text-dark">
                   Home Content Management
                 </Link>
               </NavDropdown.Item>

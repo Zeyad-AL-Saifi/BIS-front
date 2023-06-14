@@ -3,9 +3,9 @@ import React from "react";
 import "./NewsContainer.css";
 const NewsContainer = () => {
   return (
-    <div className="container-xxl">
-      <div className="row ">
-        <div className=" col-md-4 col-sm-6 ">
+    <div className="container">
+      <div className="row row-cols-md-1 row-cols-lg-1 row-cols-xl-2 row-cols-xxl-3  ">
+        <div className="col ">
           <div className="card custom-card">
             <div className="card-header">
               <h1>Title</h1>
@@ -17,7 +17,7 @@ const NewsContainer = () => {
             </div>
           </div>
         </div>
-        <div className=" col-md-4 col-sm-6 ">
+        <div className="col  ">
           <div className="card custom-card">
             <div className="card-header">
               <h1>Title</h1>
@@ -29,7 +29,7 @@ const NewsContainer = () => {
             </div>
           </div>
         </div>
-        <div className=" col-md-4 col-sm-6 ">
+        <div className="col ">
           <div className="card custom-card">
             <div className="card-header">
               <h1>Title</h1>

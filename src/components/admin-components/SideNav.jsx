@@ -21,7 +21,7 @@ const SideNav = () => {
           <CDBSidebarMenu>
             <NavLink
               exact
-              to="/teachermanagement"
+              to="homecontentmanagement"
               activeClassName="activeClicked"
             >
               <CDBSidebarMenuItem icon="columns">
@@ -30,7 +30,7 @@ const SideNav = () => {
             </NavLink>
             <NavLink
               exact
-              to="/teachermanagement"
+              to="teachermanagement"
               activeClassName="activeClicked"
             >
               <CDBSidebarMenuItem icon="user">
@@ -39,7 +39,7 @@ const SideNav = () => {
             </NavLink>
             <NavLink
               exact
-              to="/homecontentmanagement"
+              to="homecontentmanagement"
               activeClassName="activeClicked"
             >
               <CDBSidebarMenuItem icon="table">
@@ -48,7 +48,7 @@ const SideNav = () => {
             </NavLink>
             <NavLink
               exact
-              to="/studentmanagement"
+              to="studentmanagement"
               activeClassName="activeClicked"
             >
               <CDBSidebarMenuItem icon="user">
@@ -56,8 +56,14 @@ const SideNav = () => {
               </CDBSidebarMenuItem>
             </NavLink>
 
-            <NavLink exact to="/profile" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="table">Student Notes</CDBSidebarMenuItem>
+            <NavLink
+              exact
+              to="homecontentmanagement"
+              activeClassName="activeClicked"
+            >
+              <CDBSidebarMenuItem icon="table">
+                Student Notes
+              </CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
         </CDBSidebarContent>
