@@ -38,12 +38,12 @@ const CustomNavbar = () => {
                 </Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link to="/" className="nav-link text-dark">
+                <Link to="/admin" className="nav-link text-dark">
                   Student Management
                 </Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link to="/" className="nav-link text-dark">
+                <Link to="/admin" className="nav-link text-dark">
                   Teacher Management
                 </Link>
               </NavDropdown.Item>
