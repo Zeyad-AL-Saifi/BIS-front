@@ -39,7 +39,7 @@ const SideNav = () => {
             </NavLink>
             <NavLink
               exact
-              to="homecontentmanagement"
+              to="teachernotemanage"
               activeClassName="activeClicked"
             >
               <CDBSidebarMenuItem icon="table">
@@ -58,11 +58,21 @@ const SideNav = () => {
 
             <NavLink
               exact
-              to="homecontentmanagement"
+              to="studentnotemanage"
               activeClassName="activeClicked"
             >
               <CDBSidebarMenuItem icon="table">
                 Student Notes
+              </CDBSidebarMenuItem>
+            </NavLink>
+
+            <NavLink
+              exact
+              to="registration"
+              activeClassName="activeClicked"
+            >
+              <CDBSidebarMenuItem icon="sign">
+                Registration New User
               </CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>

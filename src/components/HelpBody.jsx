@@ -1,8 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const Help = () => {
-  return (
-    <div>
+const HelpBody = () => {
+    return (
+        <div>
+            <div>
       <div class="container p-5 mb-5 h-100">
         <div class="row">
           <div class="col">
@@ -27,7 +28,8 @@ const Help = () => {
         </div>
       </div>
     </div>
-  );
-};
+        </div>
+    );
+}
 
-export default Help;
+export default HelpBody;

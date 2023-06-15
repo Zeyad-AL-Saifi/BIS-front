@@ -1,16 +1,21 @@
 import React from "react";
-import HomeView from "./views/HomeView";
 import Header from "./components/public-components/Header";
 import Footer from "./components/public-components/Footer";
-import LoginView from "./views/LoginView";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import StudentView from "./views/StudentView";
-import TeacherView from "./views/TeacherView";
-import Admin from "./views/Admin";
-import HomeManagement from "./views/admin-views/HomeManagement";
-import Help from "./views/Help";
-import TeacherManagement from "./views/admin-views/TeacherManagement";
-import StudentManagement from "./views/admin-views/StudentManagement";
+import {
+  AdminView,
+  HelpView,
+  HomeManagement,
+  HomeView,
+  LoginView,
+  Registration,
+  StudentManagement,
+  StudentNotesManagement,
+  StudentView,
+  TeacherManagement,
+  TeacherNotesManagement,
+  TeacherView,
+} from "./views/Export";
 
 const App = (props) => {
   return (
@@ -21,22 +26,22 @@ const App = (props) => {
         <Route path="/login" element={<LoginView />} />
         <Route path="/student" element={<StudentView />} />
         <Route path="/teacher" element={<TeacherView />} />
-        <Route path="/admin" element={<Admin />}>
-        <Route index element={<HomeManagement />} />
+        <Route path="/admin" element={<AdminView />}>
+          <Route index element={<HomeManagement />} />
+          <Route path="teachermanagement" element={<TeacherManagement />} />
+          <Route path="homecontentmanagement" element={<HomeManagement />} />
+          <Route path="studentmanagement" element={<StudentManagement />} />
           <Route
-            path="teachermanagement"
-            element={<TeacherManagement />}
+            path="studentnotemanage"
+            element={<StudentNotesManagement />}
           />
           <Route
-            path="homecontentmanagement"
-            element={<HomeManagement />}
+            path="teachernotemanage"
+            element={<TeacherNotesManagement />}
           />
-          <Route
-            path="studentmanagement"
-            element={<StudentManagement />}
-          />
+          <Route path="registration" element={<Registration />} />
         </Route>
-        <Route path="/help" element={<Help />} />
+        <Route path="/help" element={<HelpView />} />
       </Routes>
       <Footer />
     </Router>

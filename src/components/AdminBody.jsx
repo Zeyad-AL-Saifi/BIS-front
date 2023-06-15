@@ -1,8 +1,8 @@
 import React from "react";
-import SideNav from "../components/admin-components/SideNav";
+import SideNav from "./admin-components/SideNav";
 import { Outlet } from "react-router-dom";
 
-const Admin = () => {
+const AdminBody = () => {
   return (
     <div className="row">
       <div className="col-auto">
@@ -15,4 +15,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default AdminBody;

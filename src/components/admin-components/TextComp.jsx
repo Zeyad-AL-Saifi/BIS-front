@@ -5,6 +5,9 @@ const TextComp = () => {
     <div>
       <div className="textarea">
         <h3 className="p-3">Main Text in home page</h3>
+        <p>
+          You have one main text in home page you can update the text here ℹ️
+        </p>
         <form>
           <textarea
             className="w-100"

@@ -1,18 +1,14 @@
 import React from "react";
 import { NavDropdown, Nav, Container, Navbar } from "react-bootstrap";
-import Badge from "react-bootstrap/Badge";
 import { Link } from "react-router-dom";
 const CustomNavbar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand>
-          BIS
-          <Badge bg="darck">
-            <Link to="/" className="nav-link active">
-              Best International School
-            </Link>
-          </Badge>
+          <Link to="/" className="nav-link active">
+            <h3> B  -  I  -  S </h3> Best International School
+          </Link>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -30,9 +26,7 @@ const CustomNavbar = () => {
             </Link>
             <NavDropdown title="Admin" id="collasible-nav-dropdown">
               <NavDropdown.Item>
-                <Link
-                  to="/admin"
-                  className="nav-link text-dark">
+                <Link to="/admin" className="nav-link text-dark">
                   Home Content Management
                 </Link>
               </NavDropdown.Item>

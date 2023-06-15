@@ -8,7 +8,12 @@ const HomeBody = () => {
     <body>
       <ImageSlider />
       <TextArea />
-      <NewsContainer />
+      <NewsContainer
+        title={"Read all new 👌 "}
+        content={
+          "Here you will find all the exclusive news and events taking place within the organization"
+        }
+      />
     </body>
   );
 };

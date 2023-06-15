@@ -1,12 +1,19 @@
 import React from "react";
 import FilterForm from "../../components/admin-components/filterForm";
-import ProfileCard from "../../components/admin-components/ProfileCard";
+import ProfileCardCompo from "../../components/admin-components/ProfileCardCompo";
 
 const TeacherManagement = () => {
   return (
     <div>
       <FilterForm />
-      <ProfileCard />
+      <div>
+        <h3>You can manage the teacher from here </h3>
+        <p>
+          You can modify the teachers' information or cancel one of them's
+          account ℹ
+        </p>
+      </div>
+      <ProfileCardCompo />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import HomeBody from "../components/Home-body";
+import HomeBody from "../components/HomeBody";
 
 function HomeView() {
   return (
