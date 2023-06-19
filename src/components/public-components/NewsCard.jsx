@@ -1,8 +1,9 @@
 import React from "react";
 
-const NewsCard = () => {
+const NewsCard = ({ onclick, admin }) => {
+  
   return (
-    <div>
+    <div onClick={onclick}>
       <div className="col ">
         <div className="card custom-card">
           <div className="card-header">
@@ -18,6 +19,7 @@ const NewsCard = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

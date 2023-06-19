@@ -1,4 +1,4 @@
-import HomeBody from "../components/HomeBody";
+import HomeBody from "../components/body/HomeBody";
 
 function HomeView() {
 

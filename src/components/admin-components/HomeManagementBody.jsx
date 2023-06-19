@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import ImageComp from "../../components/admin-components/ImageComp";
 import TextComp from "../../components/admin-components/TextComp";
-import NewsContainer from "../../components/home-components/NewsContainer";
+import NewsModal from "../modals/newsModal";
+import NewsContainerManager from "./NewsContainerManager";
+
 const HomeManagementBody = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
   return (
     <div>
       <div className="container  ">
@@ -11,17 +23,19 @@ const HomeManagementBody = () => {
         <TextComp />
         <hr className="rounded" />
         <div>
-          <NewsContainer
-            title={"Update News Section"}
-            content={
-              "You can add news from here but remember that you can add ten news at thesame time ℹ️"
-            }
-          />
-          <button className="btn btn-dark w-100 mb-4 p-3">
+          <NewsContainerManager />
+        </div>
+        <hr className="rounded" />
+        <div>
+          <button
+            className="btn btn-dark w-100 mb-4 p-3"
+            onClick={handleShowModal}
+          >
             Click here to Add new news
           </button>
         </div>
       </div>
+      <NewsModal handleCloseModal={handleCloseModal} showModal={showModal} />
     </div>
   );
 };

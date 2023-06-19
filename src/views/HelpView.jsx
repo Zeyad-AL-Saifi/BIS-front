@@ -1,5 +1,5 @@
 import React from "react";
-import HelpBody from "../components/HelpBody";
+import HelpBody from "../components/body/HelpBody";
 
 const HelpView = () => {
   return (

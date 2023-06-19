@@ -1,5 +1,5 @@
 import React from "react";
-import TeacherBody from "../components/TeacherBody";
+import TeacherBody from "../components/body/TeacherBody";
 
 const TeacherView = () => {
   return (

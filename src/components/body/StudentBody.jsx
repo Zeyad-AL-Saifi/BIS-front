@@ -1,7 +1,7 @@
 import React from "react";
-import NotesCome from "./profile-components/NotesCome";
-import FormSendNotes from "./profile-components/FormSendNotes";
-import ProfileInfo from "./profile-components/ProfileInfo";
+import NotesCome from "../profile-components/NotesCome";
+import FormSendNotes from "../form/FormSendNotes";
+import ProfileInfo from "../profile-components/ProfileInfo";
 
 const StudentBody = () => {
   return (

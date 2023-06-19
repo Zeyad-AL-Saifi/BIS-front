@@ -1,7 +1,7 @@
 import React from "react";
-import ImageSlider from "./home-components/ImageSlider";
-import NewsContainer from "./home-components/NewsContainer";
-import TextArea from "./home-components/TextArea";
+import ImageSlider from "../home-components/ImageSlider";
+import NewsContainer from "../home-components/NewsContainer";
+import TextArea from "../home-components/TextArea";
 
 const HomeBody = () => {
   return (

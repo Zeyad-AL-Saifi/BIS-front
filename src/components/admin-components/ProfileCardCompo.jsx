@@ -3,6 +3,7 @@ import ProfileCard from "./ProfileCard";
 import { Button, Modal } from "react-bootstrap";
 import TeacherForm from "../form/TeacherForm";
 import StudentForm from "../form/StudentForm";
+import UserEditModal from "../modals/userEditModal";
 
 const ProfileCardCompo = ({ user }) => {
   const [showModal, setShowModal] = useState(false);
@@ -24,22 +25,11 @@ const ProfileCardCompo = ({ user }) => {
         <ProfileCard handleShowModal={handleShowModal} />
       </div>
       <div className="text-center">
-        <Modal show={showModal} onHide={handleCloseModal} centered>
-          <Modal.Header closeButton>
-            <Modal.Title>Update user</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {user ==='std' ?<StudentForm /> : <TeacherForm />}
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleCloseModal}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleCloseModal}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
+        <UserEditModal
+          user={user}
+          handleCloseModal={handleCloseModal}
+          showModal={showModal}
+        />
       </div>
     </div>
   );

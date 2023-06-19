@@ -1,7 +1,7 @@
+import NoteShowModal from "../modals/NoteShowModal";
 import FilterForm from "./filterForm";
 import NoteInTable from "./NoteInTable";
 import React, { useState } from "react";
-import { Modal } from "react-bootstrap";
 const NoteManageBody = (props) => {
   const [showModal, setShowModal] = useState(false);
 
@@ -32,22 +32,12 @@ const NoteManageBody = (props) => {
           <NoteInTable handleShowModal={handleShowModal} />
         </tbody>
       </table>
-      
-        <div className="text-center">
-          <Modal show={showModal} onHide={handleCloseModal} centered>
-            <Modal.Header closeButton>
-              <Modal.Title>The Note</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <p>This is the content of the modal.</p>
-            </Modal.Body>
-            <Modal.Footer>
-              <button className="btn btn-secondary" onClick={handleCloseModal}>
-                Close
-              </button>
-            </Modal.Footer>
-          </Modal>
-        </div>
+      <div className="text-center">
+        <NoteShowModal
+          showModal={showModal}
+          handleCloseModal={handleCloseModal}
+        />
+      </div>
     </div>
   );
 };
