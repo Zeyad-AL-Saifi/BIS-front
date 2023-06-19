@@ -5,16 +5,16 @@ import TextArea from "./home-components/TextArea";
 
 const HomeBody = () => {
   return (
-    <body>
+    <div>
       <ImageSlider />
-      <TextArea />
+      <TextArea  />
       <NewsContainer
         title={"Read all new 👌 "}
         content={
           "Here you will find all the exclusive news and events taking place within the organization"
         }
       />
-    </body>
+    </div>
   );
 };
 

@@ -45,7 +45,7 @@ const RegistrationBody = () => {
             </h5>
           </label>
         </div>
-        <hr class="rounded" />
+        <hr className="rounded" />
 
         <form onSubmit={handelsubmit}>
           {userType === "teacher" && <TeacherForm />}

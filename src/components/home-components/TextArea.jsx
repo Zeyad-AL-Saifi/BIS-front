@@ -1,21 +1,32 @@
 import React from "react";
-
+import { useSelector, useDispatch } from "react-redux";
+import { getMainText } from "../../store/Home/main-text/mainTextSlice";
+import Check from "../../utils/guard/load/Check";
+import { useEffect } from "react";
+import "../../utils/css/homeContent.css";
 const TextArea = () => {
+  const { error, loading, records } = useSelector((state) => state.maintext);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getMainText());
+  }, [dispatch]);
+
+  const data = records.map((ele, index) => {
+    return (
+      <p className="container" key={ele.text_id}>
+        {ele.main_text}
+      </p>
+    );
+  });
   return (
-    <div>
-      <div className="container p-4">
-        <h2>Welcome to our school</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur,Lorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Iste atque ea quis molestias. Fugiat
-          pariatur maxime quis culpa corporis vitae repudiandae aliquam
-          voluptatem veniam, est atque cumque eum delectus sint! adipisicing
-          elit. Iste atque ea quis molestias. Fugiat pariatur maxime quis culpa
-          corporis vitae repudiandae aliquam voluptatem veniam, est atque cumque
-          eum delectus sint!
-        </p>
+    <Check loading={loading} error={error}>
+      <div>
+        <div className="container  p-4">
+          <h2>Welcome to our school</h2>
+          <div> {data}</div>
+        </div>
       </div>
-    </div>
+    </Check>
   );
 };
 

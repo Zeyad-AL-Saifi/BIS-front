@@ -4,9 +4,9 @@ import StudentBody from "../components/StudentBody";
 
 const StudentView = () => {
   return (
-    <body>
+    <div>
       <StudentBody />
-    </body>
+    </div>
   );
 };
 

@@ -7,9 +7,9 @@ const HomeManagementBody = () => {
     <div>
       <div className="container  ">
         <ImageComp />
-        <hr class="rounded" />
+        <hr className="rounded" />
         <TextComp />
-        <hr class="rounded" />
+        <hr className="rounded" />
         <div>
           <NewsContainer
             title={"Update News Section"}
