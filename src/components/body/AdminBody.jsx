@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 const AdminBody = () => {
   return (
     <div className="row">
-      <div className="col-auto">
+      <div className="col col-sm-auto">
         <SideNav />
       </div>
       <div className="col col-md-7 col-lg-8  col-xl-9 col-sm-9 ">

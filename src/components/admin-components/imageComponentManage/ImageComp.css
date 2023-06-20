@@ -1,0 +1,62 @@
+.custom-input {
+  position: relative;
+  display: block;
+  width: 250px;
+  /* Adjust the width as needed */
+  height: 250px;
+  /* Adjust the height as needed */
+}
+
+
+.custom-input label button {
+  border: 1px solid black;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  font-size: 2rem;
+}
+.custom-input label:hover {
+background-color: aqua;
+}
+.custom-input input[type="file"] {
+  display: none;
+}
+
+.custom-input label {
+  cursor: pointer;
+}
+
+.custom-input img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.customCube {
+  width: 250px;
+  height: 250px;
+  display: block;
+
+}
+
+.image-container::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.image-container:hover::after {
+  content: "\f00d"; /* Replace with the icon content you want to use (e.g., Font Awesome) */
+  font-family: "Font Awesome"; /* Replace with the font family for the icon */
+  color: red; /* Replace with the desired color for the remove icon */
+  font-size: 24px; /* Replace with the desired font size for the remove icon */
+  opacity: 1;
+}
+

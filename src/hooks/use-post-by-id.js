@@ -1,17 +1,14 @@
 import  { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPostById } from "../redux/postSlice";
-import { useParams } from "react-router-dom";
+import { getNewsByID } from "../store/Home/news/newsSlice";
 
-const UsePostById = () => {
-    const { id } = useParams();
-
+const UsePostById = (id) => {
     const dispatch = useDispatch();
 
-    const { loading, error, record } = useSelector((state) => state.posts);
+    const { loading, error, record } = useSelector((state) => state.news);
 
     useEffect(() => {
-        dispatch(fetchPostById(id));
+        dispatch(getNewsByID(id));
     }, [dispatch, id]);
     return { loading, error, record }
 }

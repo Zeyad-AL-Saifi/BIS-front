@@ -2,7 +2,6 @@ import Loading from "./loading";
 import React from "react";
 const Check = ({ loading, error, children }) => {
   const ifButton = children.type;
-  console.log(children);
   const handelRender = () => {
     if (ifButton === "button") {
       const cloneButton = React.cloneElement(

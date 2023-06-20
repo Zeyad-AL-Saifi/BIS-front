@@ -16,7 +16,7 @@ const TextComp = () => {
   }, [record, text]);
 
   useEffect(() => {
-    dispatch({ type: "post/cleanRecord" });
+    dispatch({ type: "maintext/cleanRecord" });
   }, [dispatch]);
 
   const handelSubmit = (e) => {

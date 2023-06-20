@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import ProfileCard from "./ProfileCard";
-import { Button, Modal } from "react-bootstrap";
-import TeacherForm from "../form/TeacherForm";
-import StudentForm from "../form/StudentForm";
 import UserEditModal from "../modals/userEditModal";
 
 const ProfileCardCompo = ({ user }) => {

@@ -1,20 +1,19 @@
 import React, { useState } from "react";
-import ImageComp from "../../components/admin-components/ImageComp";
+import ImageComp from "./imageComponentManage/ImageComp";
 import TextComp from "../../components/admin-components/TextComp";
 import NewsModal from "../modals/newsModal";
 import NewsContainerManager from "./NewsContainerManager";
 
 const HomeManagementBody = () => {
   const [showModal, setShowModal] = useState(false);
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-
   const handleCloseModal = () => {
     setShowModal(false);
   };
   const handleShowModal = () => {
     setShowModal(true);
   };
+
+  
   return (
     <div>
       <div className="container  ">
@@ -35,7 +34,7 @@ const HomeManagementBody = () => {
           </button>
         </div>
       </div>
-      <NewsModal handleCloseModal={handleCloseModal} showModal={showModal} />
+      <NewsModal setShowModal={ setShowModal} handleCloseModal={handleCloseModal} showModal={showModal} />
     </div>
   );
 };

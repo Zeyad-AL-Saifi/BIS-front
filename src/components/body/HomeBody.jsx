@@ -8,7 +8,7 @@ const HomeBody = () => {
     <div>
       <ImageSlider />
       <TextArea  />
-      <NewsContainer
+      <NewsContainer display={false}
         title={"Read all new 👌 "}
         content={
           "Here you will find all the exclusive news and events taking place within the organization"
