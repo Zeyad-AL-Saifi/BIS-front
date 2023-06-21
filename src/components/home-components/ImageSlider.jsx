@@ -14,7 +14,6 @@ const ImageSlider = () => {
   }, [dispatch]);
 
   const data = records?.map((ele) => {
-    console.log(ele);
     return (
       <Carousel.Item key={ele?.image_id}>
         <img

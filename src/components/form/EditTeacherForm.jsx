@@ -16,11 +16,17 @@ const EditTeacherForm = ({ item, handleCloseModal }) => {
     validationSchema: updateTecherSchema,
     onSubmit: (values) => {
       dispatch(updateteachers(values))
-        .unwrap()
+        .then((action) => {
+          const message = action.payload.message;
+          alert(message);
+        })
         .then(() => {
           dispatch(getAllteachers());
         })
-        .then(handleCloseModal);
+        .then(handleCloseModal)
+        .catch((error) => {
+          alert(error.message);
+        });
     },
   });
   return (
