@@ -3,16 +3,13 @@ import TeacherForm from "../../components/form/TeacherForm";
 import StudentForm from "../../components/form/StudentForm";
 import { useState } from "react";
 
-const RegistrationBody = () => {
+const RegistrationBody = ( ) => {
   const [userType, setUserType] = useState("student");
 
   const handleUserTypeChange = (event) => {
     setUserType(event.target.value);
   };
 
-  const handelsubmit = (event) => {
-    event.preventDefault();
-  };
   return (
     <div>
       <div className="m-4" style={{ minHeight: "670px" }}>
@@ -47,13 +44,10 @@ const RegistrationBody = () => {
         </div>
         <hr className="rounded" />
 
-        <form onSubmit={handelsubmit}>
-          {userType === "teacher" && <TeacherForm />}
-          {userType === "student" && <StudentForm />}
-          <button type="submit" className="btn btn-primary m-3 w-100">
-            Sign Up
-          </button>
-        </form>
+        {userType === "teacher" && (
+          <TeacherForm  />
+        )}
+        {userType === "student" && <StudentForm />}
       </div>
     </div>
   );

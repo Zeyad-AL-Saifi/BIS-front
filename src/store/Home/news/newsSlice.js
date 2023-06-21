@@ -198,8 +198,9 @@ const newsSlice = createSlice({
             state.error = null;
         })
         builder.addCase(updateNews.fulfilled, (state, action) => {
+
+            state.record = action.payload;
             state.loading = false;
-            state.records = action.payload;
         })
         builder.addCase(updateNews.rejected, (state, action) => {
             state.loading = false;

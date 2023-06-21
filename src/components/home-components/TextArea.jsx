@@ -11,7 +11,7 @@ const TextArea = () => {
     dispatch(getMainText());
   }, [dispatch]);
 
-  const data = records.map((ele, index) => {
+  const data = records?.map((ele, index) => {
     return (
       <p className="container" key={ele.text_id}>
         {ele.main_text}

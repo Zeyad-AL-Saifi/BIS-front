@@ -2,9 +2,10 @@ import { useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { updateNews } from "../../store/Home/news/newsSlice";
+import { getAllNews, updateNews } from "../../store/Home/news/newsSlice";
 import { Button, Modal } from "react-bootstrap";
 import Check from "../../utils/guard/load/Check";
+import { useNavigate } from "react-router-dom";
 const EditNewsPage = ({
   showModal,
   handleCloseModal,
@@ -15,6 +16,7 @@ const EditNewsPage = ({
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (item) {
       setTitle(item.title);
@@ -28,7 +30,7 @@ const EditNewsPage = ({
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    dispatch( updateNews({ id: item.news_id, title, content }));
+    dispatch(updateNews({ id: item.news_id, title, content })).unwrap();
   };
 
   return (

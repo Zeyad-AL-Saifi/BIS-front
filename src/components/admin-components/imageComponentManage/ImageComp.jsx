@@ -9,7 +9,6 @@ import {
 import "./ImageComp.css";
 import Check from "../../../utils/guard/load/Check";
 import { useCallback } from "react";
-
 const ImageComp = () => {
   const { loading, error, records } = useSelector((state) => state.homeimage);
 
@@ -24,23 +23,30 @@ const ImageComp = () => {
       return;
     }
     const file = event.target.files[0];
-    dispatch(addNewImage(file));
+    dispatch(addNewImage(file))
+      .unwrap()
+      .then(() => {
+        dispatch(getAllHomeImage());
+      });
   };
 
-  const handleDelete = useCallback((id) => {
-    dispatch(deleteImage(id));
-  },[dispatch]);
+  const handleDelete = useCallback(
+    (id) => {
+      dispatch(deleteImage(id));
+    },
+    [dispatch]
+  );
 
-  const data = records.map((ele, index) => {
+  const data = records?.map((ele, index) => {
     return (
-      <div className="col m-3 image-container ">
+      <div key={ele.image_id} className="col m-3 image-container ">
         <img
           onClick={() => {
             handleSure(ele.image_id);
           }}
           className="customCube"
-          src={records[index].image_data.secure_url}
-          alt="src/assets/images/upload.webp"
+          src={ele?.image_data?.secure_url}
+          alt="no"
         />
       </div>
     );
@@ -48,9 +54,9 @@ const ImageComp = () => {
 
   const handleSure = (id) => {
     if (window.confirm("Did you want delete this image ?")) {
-      handleDelete(id)
-  }
-}
+      handleDelete(id);
+    }
+  };
 
   return (
     <Check loading={loading} error={error}>

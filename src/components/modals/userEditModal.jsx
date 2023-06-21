@@ -1,9 +1,9 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import StudentForm from "../form/StudentForm";
-import TeacherForm from "../form/TeacherForm";
+import EditTeacherForm from "../form/EditTeacherForm";
 
-const UserEditModal = ({ user, handleCloseModal, showModal }) => {
+const UserEditModal = ({ user, handleCloseModal, showModal, item }) => {
   return (
     <div>
       <Modal show={showModal} onHide={handleCloseModal} centered>
@@ -11,14 +11,15 @@ const UserEditModal = ({ user, handleCloseModal, showModal }) => {
           <Modal.Title>Update user</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {user === "std" ? <StudentForm /> : <TeacherForm />}
+          {user === "std" ? (
+            <StudentForm />
+          ) : (
+              <EditTeacherForm item={item} handleCloseModal={handleCloseModal} />
+          )}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseModal}>
             Close
-          </Button>
-          <Button variant="primary" onClick={handleCloseModal}>
-            Save Changes
           </Button>
         </Modal.Footer>
       </Modal>

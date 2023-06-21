@@ -16,17 +16,17 @@ import Loading from '../utils/guard/load/loading';
 //     TeacherManagement, TeacherNotesManagement, HomeView, LoginView, StudentView} = React.lazy(() => import("../views/Export"));
 
 
-const  AdminView  = React.lazy(() => import("../views/AdminView"));
-const  TeacherView  = React.lazy(() => import("../views/TeacherView"));
-const  HelpView  = React.lazy(() => import("../views/HelpView"));
-const  HomeManagement  = React.lazy(() => import("../views/admin-views/HomeManagement"));
-const  Registration  = React.lazy(() => import("../views/admin-views/Registration"));
-const  StudentManagement  = React.lazy(() => import("../views/admin-views/StudentManagement"));
-const  StudentNotesManagement = React.lazy(() => import("../views/admin-views/StudentNotesManagement"));
-const  TeacherManagement  = React.lazy(() => import("../views/admin-views/TeacherManagement.jsx"));
-const  TeacherNotesManagement  = React.lazy(() => import("../views/admin-views/TeacherNotesManagement"));
-const  HomeView  = React.lazy(() => import("../views/HomeView"));
-const  LoginView  = React.lazy(() => import("../views/LoginView"));
+const AdminView = React.lazy(() => import("../views/AdminView"));
+const TeacherView = React.lazy(() => import("../views/TeacherView"));
+const HelpView = React.lazy(() => import("../views/HelpView"));
+const HomeManagement = React.lazy(() => import("../views/admin-views/HomeManagement"));
+const Registration = React.lazy(() => import("../views/admin-views/Registration"));
+const StudentManagement = React.lazy(() => import("../views/admin-views/StudentManagement"));
+const StudentNotesManagement = React.lazy(() => import("../views/admin-views/StudentNotesManagement"));
+const TeacherManagement = React.lazy(() => import("../views/admin-views/TeacherManagement.jsx"));
+const TeacherNotesManagement = React.lazy(() => import("../views/admin-views/TeacherNotesManagement"));
+const HomeView = React.lazy(() => import("../views/HomeView"));
+const LoginView = React.lazy(() => import("../views/LoginView"));
 const StudentView = React.lazy(() => import("../views/StudentView"));
 
 
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/admin",
-
+                errorElement: <Error />,
                 element: <Suspense
                     fallback={<Loading />}>
                     <AdminView />
