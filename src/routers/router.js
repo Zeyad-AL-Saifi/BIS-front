@@ -2,20 +2,12 @@
 import { createBrowserRouter } from 'react-router-dom';
 import React, { Suspense } from 'react';
 import Error from '../utils/guard/load/Error'
-// import {AdminView,TeacherView,
-//     HelpView, HomeManagement, Registration,
-//     StudentManagement, StudentNotesManagement,
-//     TeacherManagement, TeacherNotesManagement, HomeView, LoginView, StudentView
-//  from '../views/Export';
+
 import App from '../App';
 import Loading from '../utils/guard/load/loading';
 import StudentLoginView from '../views/login/StudentLoginView';
 import TeacherLoginView from '../views/login/TeacherLoginView';
 
-// const {AdminView,TeacherView,
-//     HelpView, HomeManagement, Registration,
-//     StudentManagement, StudentNotesManagement,
-//     TeacherManagement, TeacherNotesManagement, HomeView, LoginView, StudentView} = React.lazy(() => import("../views/Export"));
 
 
 const AdminView = React.lazy(() => import("../views/admin-views/AdminView"));

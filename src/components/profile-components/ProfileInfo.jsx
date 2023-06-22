@@ -12,7 +12,7 @@ const ProfileInfo = ({ userInfo }) => {
         <h5>Email : {userInfo.email}</h5>
       </div>
       <div className="image">
-        <img src="https://picsum.photos/id/75/200/300" alt="d" />
+        <img src="https://picsum.photos/200/300" alt="d" />
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import {
   deleteImage,
   getAllHomeImage,
 } from "../../../../store/Home/images/homeImageSlice";
-
+import "./ImageComp.css"
 const ImageComp = () => {
   const { loading, error, records } = useSelector((state) => state.homeimage);
 

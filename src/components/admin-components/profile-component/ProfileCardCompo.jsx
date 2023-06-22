@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProfileCard from "./ProfileCard";
-import UserEditModal from '../../modals/userEditModal'
+import UserEditModal from "../../modals/userEditModal";
 const ProfileCardCompo = ({ user, records, handelDelete }) => {
   const [showModal, setShowModal] = useState(false);
 
@@ -24,12 +24,10 @@ const ProfileCardCompo = ({ user, records, handelDelete }) => {
     }
   };
 
-
-
-  
-  const data = records.map((ele,index) => {
+  const data = records.map((ele, index) => {
     return (
       <ProfileCard
+        key={ele.id_student}
         index={index}
         ele={ele}
         handelDelete={() => {

@@ -2,9 +2,9 @@
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = {
-    isStudent: false,
-    isAdmin: false,
-    isTecher: false,
+    isStudent: true,
+    isAdmin: true,
+    isTecher: true,
     loading: false,
     error: null,
     accessToken: "",

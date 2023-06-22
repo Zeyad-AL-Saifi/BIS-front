@@ -1,12 +1,13 @@
 import React from "react";
-import FormGroup from "../../components/form/FormGroup";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
+import { Button, Form } from "react-bootstrap";
+
 import {
   getAllteachers,
   updateteachers,
 } from "../../store/profile/teachers/teachersSlice";
-import { Button, Form } from "react-bootstrap";
+import FormGroup from "./FormGroup";
 import { updateTecherSchema } from "../../utils/validation/validationSchema";
 
 const EditTeacherForm = ({ item, handleCloseModal }) => {

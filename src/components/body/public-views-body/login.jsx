@@ -55,9 +55,9 @@ const Login = ({ handleSubmit }) => {
                     </div>
 
                     <p className="small mb-5 pb-lg-2">
-                      <a className="text-white-50" href="#!">
+                      <p className="text-white-50" href="#!">
                         Forgot password?
-                      </a>
+                      </p>
                     </p>
 
                     <button

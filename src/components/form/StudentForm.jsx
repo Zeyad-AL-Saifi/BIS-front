@@ -1,10 +1,10 @@
-import FormGroup from "../../components/form/FormGroup";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { Button, Form } from "react-bootstrap";
-import { registerSchemaStudents } from "../../utils/validation/validationSchema";
 import { useNavigate } from "react-router-dom";
+import FormGroup from "./FormGroup";
 import { registrationStudents } from "../../store/profile/students/studentsSlice";
+import { registerSchemaStudents } from "../../utils/validation/validationSchema";
 
 const StudentForm = () => {
   const dispatch = useDispatch();

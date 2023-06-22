@@ -11,7 +11,8 @@ const ProfileCard = ({ handleShowModal, ele, handelDelete, index }) => {
     >
       
       <img
-        src={`https://picsum.photos/id/${index+411}/200/250`}
+        style={{ width: "260px" ,height:"350px" }}
+        src={`https://picsum.photos/250/350`}
         className="card-img-top"
         alt="Your"
       />
