@@ -1,12 +1,10 @@
 import { useDispatch } from "react-redux";
 import FormGroup from "../../components/form/FormGroup";
 import { useFormik } from "formik";
-import {
-  getAllStudents,
-  updateStudents,
-} from "../../store/profile/students/studentsSlice";
+
 import { updateStudentsSchema } from "../../utils/validation/validationSchema";
 import { Button, Form } from "react-bootstrap";
+import { getAllStudents, updateStudents } from "../../store/profile/students/studentsSlice";
 
 const EditStudentForm = ({ item, handleCloseModal }) => {
   const dispatch = useDispatch();

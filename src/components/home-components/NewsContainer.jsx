@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
-
-import "../../utils/css/NewsContainer.css";
-import NewsCard from "../public-components/NewsCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllNews } from "../../store/Home/news/newsSlice";
 import Check from "../../utils/guard/load/Check";
+import '../../utils/css/NewsContainer.css'
+import NewsCard from '../public-components/NewsCard'
 
 const NewsContainer = (props) => {
   const { loading, error, records } = useSelector((state) => state.news);

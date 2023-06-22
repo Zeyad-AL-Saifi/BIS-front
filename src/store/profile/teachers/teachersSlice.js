@@ -45,22 +45,7 @@ export const registrationTeacher = createAsyncThunk(
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",
                     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjg2ODQ4Nzk3fQ.lLbG9qyrbFMyKUl4JZO_bftFMVlpIFLsi7GhcCU7yCs"
-
                 }
-
-
-                //     JSON.stringify({
-                //     full_name: item.full_name,
-                //     address: item.address,
-                //     mobile_number: item.mobile_number,
-                //     major: item.major,
-                //     gender: item.gender,
-                //     password: item.password,
-                //     email: item.email,
-                //     is_admin: item.is_admin,
-                //     teacher_image:"ooo",
-                // }),
-
             });
             const data = await res.json();
             return data;

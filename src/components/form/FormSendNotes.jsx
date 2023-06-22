@@ -1,6 +1,6 @@
 import React from "react";
 
-const FormSendNotes = () => {
+const FormSendNotes = ({ userInfo }) => {
   return (
     <div>
       <div className="row">
@@ -13,8 +13,10 @@ const FormSendNotes = () => {
               </label>
               <input
                 type="text"
+                value={userInfo.full_name}
                 className="form-control"
                 id="nameInput"
+                disabled={true}
                 placeholder="Enter your name"
               />
             </div>

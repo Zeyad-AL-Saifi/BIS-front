@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 import { getMainText } from "../../store/Home/main-text/mainTextSlice";
 import Check from "../../utils/guard/load/Check";
-import { useEffect } from "react";
-import "../../utils/css/homeContent.css";
+import "../../utils/css/homeContent.css"
 const TextArea = () => {
   const { error, loading, records } = useSelector((state) => state.maintext);
   const dispatch = useDispatch();

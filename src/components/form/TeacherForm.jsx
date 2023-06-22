@@ -1,7 +1,7 @@
 import FormGroup from "../../components/form/FormGroup";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-import {registrationTeacher,} from "../../store/profile/teachers/teachersSlice";
+import {registrationTeacher,} from "";
 import { Button, Form } from "react-bootstrap";
 import { registerSchemaTecher } from "../../utils/validation/validationSchema";
 import { useNavigate } from "react-router-dom";

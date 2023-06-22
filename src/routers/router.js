@@ -9,6 +9,8 @@ import Error from '../utils/guard/load/Error'
 //  from '../views/Export';
 import App from '../App';
 import Loading from '../utils/guard/load/loading';
+import StudentLoginView from '../views/login/StudentLoginView';
+import TeacherLoginView from '../views/login/TeacherLoginView';
 
 // const {AdminView,TeacherView,
 //     HelpView, HomeManagement, Registration,
@@ -16,18 +18,17 @@ import Loading from '../utils/guard/load/loading';
 //     TeacherManagement, TeacherNotesManagement, HomeView, LoginView, StudentView} = React.lazy(() => import("../views/Export"));
 
 
-const AdminView = React.lazy(() => import("../views/AdminView"));
-const TeacherView = React.lazy(() => import("../views/TeacherView"));
-const HelpView = React.lazy(() => import("../views/HelpView"));
-const HomeManagement = React.lazy(() => import("../views/admin-views/HomeManagement"));
-const Registration = React.lazy(() => import("../views/admin-views/Registration"));
-const StudentManagement = React.lazy(() => import("../views/admin-views/StudentManagement"));
-const StudentNotesManagement = React.lazy(() => import("../views/admin-views/StudentNotesManagement"));
-const TeacherManagement = React.lazy(() => import("../views/admin-views/TeacherManagement.jsx"));
-const TeacherNotesManagement = React.lazy(() => import("../views/admin-views/TeacherNotesManagement"));
-const HomeView = React.lazy(() => import("../views/HomeView"));
-const LoginView = React.lazy(() => import("../views/LoginView"));
-const StudentView = React.lazy(() => import("../views/StudentView"));
+const AdminView = React.lazy(() => import("../views/admin-views/AdminView"));
+const TeacherView = React.lazy(() => import("../views/public-vews/TeacherView"));
+const HelpView = React.lazy(() => import("../views/public-vews/HelpView"));
+const HomeManagement = React.lazy(() => import("../views/admin-views/manager/HomeManagement"));
+const Registration = React.lazy(() => import("../views/admin-views/manager/Registration"));
+const StudentManagement = React.lazy(() => import("../views/admin-views/manager/StudentManagement"));
+const StudentNotesManagement = React.lazy(() => import("../views/admin-views/manager/StudentNotesManagement"));
+const TeacherManagement = React.lazy(() => import("../views/admin-views/manager/TeacherManagement"));
+const TeacherNotesManagement = React.lazy(() => import("../views/admin-views/manager/TeacherNotesManagement"));
+const HomeView = React.lazy(() => import("../views/public-vews/HomeView"));
+const StudentView = React.lazy(() => import("../views/public-vews/StudentView"));
 
 
 
@@ -40,10 +41,17 @@ const router = createBrowserRouter([
             { index: true, element: <HomeView /> },
             // { path: "posts", element: <HomeView /> },
             {
-                path: "/login", element:
+                path: "/studentlogin", element:
                     <Suspense
                         fallback={<Loading />}>
-                        <LoginView />
+                        <StudentLoginView />
+                    </Suspense>
+            },
+            {
+                path: "/teacherlogin", element:
+                    <Suspense
+                        fallback={<Loading />}>
+                        <TeacherLoginView />
                     </Suspense>
             },
             {
@@ -61,6 +69,13 @@ const router = createBrowserRouter([
                     <TeacherView />
                 </Suspense>,
                 // loader: postParamHandler
+            },
+            {
+                path: "help",
+                element: <Suspense
+                    fallback={<Loading />}>
+                    <HelpView />
+                </Suspense>,
             },
             {
                 path: "/admin",
@@ -113,13 +128,7 @@ const router = createBrowserRouter([
                             <Registration />
                         </Suspense>,
                     },
-                    {
-                        path: "help",
-                        element: <Suspense
-                            fallback={<Loading />}>
-                            <HelpView />
-                        </Suspense>,
-                    }
+
                 ]
                 // loader: postParamHandler
             }

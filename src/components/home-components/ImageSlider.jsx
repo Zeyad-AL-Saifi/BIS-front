@@ -1,8 +1,9 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 import { getAllHomeImage } from "../../store/Home/images/homeImageSlice";
 import Check from "../../utils/guard/load/Check";
 const ImageSlider = () => {

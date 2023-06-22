@@ -1,17 +1,46 @@
 import { useSelector } from "react-redux";
+import TeacherLoginView from "../../../views/login/TeacherLoginView";
+import StudentLoginView from "../../../views/login/StudentLoginView";
 
-const withGuard = (Component) => {
+const withGuardTeacher = (Component) => {
   const Guard = (props) => {
-    const { isLoggedIn } = useSelector((state) => state.auth);
-    return isLoggedIn ? (
+    const { isTecher } = useSelector((state) => state.auth);
+    return isTecher ? (
       <Component {...props} />
     ) : (
       <>
-        <h1>please login </h1>
+        <TeacherLoginView />
       </>
     );
   };
   return Guard;
 };
 
-export default withGuard;
+const withGuardStudent = (Component) => {
+  const Guard = (props) => {
+    const { isStudent } = useSelector((state) => state.auth);
+    return isStudent ? (
+      <Component {...props} />
+    ) : (
+      <>
+        <StudentLoginView />
+      </>
+    );
+  };
+  return Guard;
+};
+
+const withGuardAdmin = (Component) => {
+  const Guard = (props) => {
+    const { isTecher, isAdmin } = useSelector((state) => state.auth);
+    return isTecher && isAdmin ? (
+      <Component {...props} />
+    ) : (
+      <>
+        <TeacherLoginView />
+      </>
+    );
+  };
+  return Guard;
+};
+export { withGuardTeacher, withGuardStudent ,withGuardAdmin};
