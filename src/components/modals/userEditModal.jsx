@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
-import StudentForm from "../form/StudentForm";
 import EditTeacherForm from "../form/EditTeacherForm";
+import EditStudentForm from "../form/EditStudentForm";
 
 const UserEditModal = ({ user, handleCloseModal, showModal, item }) => {
   return (
@@ -12,9 +12,9 @@ const UserEditModal = ({ user, handleCloseModal, showModal, item }) => {
         </Modal.Header>
         <Modal.Body>
           {user === "std" ? (
-            <StudentForm />
+            <EditStudentForm item={item} handleCloseModal={handleCloseModal} />
           ) : (
-              <EditTeacherForm item={item} handleCloseModal={handleCloseModal} />
+            <EditTeacherForm item={item} handleCloseModal={handleCloseModal} />
           )}
         </Modal.Body>
         <Modal.Footer>

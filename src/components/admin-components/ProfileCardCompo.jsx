@@ -27,9 +27,10 @@ const ProfileCardCompo = ({ user, records, handelDelete }) => {
 
 
   
-  const data = records.map((ele) => {
+  const data = records.map((ele,index) => {
     return (
       <ProfileCard
+        index={index}
         ele={ele}
         handelDelete={() => {
           deletehadeler(ele);

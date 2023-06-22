@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
 
-const NoteShowModal = ({ showModal, handleCloseModal }) => {
+const NoteShowModal = ({ item, showModal, handleCloseModal }) => {
   return (
     <div>
       <Modal show={showModal} onHide={handleCloseModal} centered>
@@ -9,7 +9,7 @@ const NoteShowModal = ({ showModal, handleCloseModal }) => {
           <Modal.Title>The Note</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>This is the content of the modal.</p>
+          <p>{item.note}</p>
         </Modal.Body>
         <Modal.Footer>
           <button className="btn btn-secondary" onClick={handleCloseModal}>

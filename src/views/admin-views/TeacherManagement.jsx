@@ -31,7 +31,6 @@ const TeacherManagement = () => {
 
   const handelInput = (event) => {
     setValue(event.target.value);
-    console.log(value);
   };
 
   const handelDelete = useCallback(
