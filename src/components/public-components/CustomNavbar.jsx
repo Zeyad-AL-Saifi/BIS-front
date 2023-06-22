@@ -1,13 +1,15 @@
 import React from "react";
 import { NavDropdown, Nav, Container, Navbar } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 const CustomNavbar = () => {
+  const dispatch = useDispatch();
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand>
           <Link to="/" className="nav-link active">
-            <h3> B  -  I  -  S </h3> Best International School
+            <h3> B - I - S </h3> Best International School
           </Link>
         </Navbar.Brand>
 
@@ -46,9 +48,14 @@ const CustomNavbar = () => {
             <Link to="/help" className="nav-link">
               Help
             </Link>
-            <Link to="/login" className="nav-link">
-              Login
-            </Link>
+            <button
+              className="nav-link"
+              onClick={() => {
+                dispatch({ type: "auth/logout" });
+              }}
+            >
+              Logout
+            </button>
           </Nav>
         </Navbar.Collapse>
       </Container>
