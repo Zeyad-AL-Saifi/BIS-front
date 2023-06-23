@@ -79,6 +79,9 @@ const authSlice = createSlice({
             state.userInfo = action.payload;
             if (state.accessToken) {
                 state.isTecher = true
+                localStorage.setItem('token', action.payload.token);
+                localStorage.setItem('user', JSON.stringify(state.userInfo));
+                localStorage.setItem('isTecher', state.isTecher);
             }
             if (state.accessToken && state.userInfo.is_admin) {
                 state.isAdmin = true
@@ -101,6 +104,11 @@ const authSlice = createSlice({
             state.accessToken = action.payload.token;
             if (state.accessToken) {
                 state.isStudent = true
+                localStorage.setItem('token', action.payload.token);
+                localStorage.setItem('user', JSON.stringify(state.userInfo));
+
+                localStorage.setItem('isStudent', state.isStudent);
+
             }
         })
         builder.addCase(loginStudent.rejected, (state, action) => {

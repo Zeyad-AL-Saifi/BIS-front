@@ -5,7 +5,10 @@ import StudentLoginView from "../../../views/login/StudentLoginView";
 const withGuardTeacher = (Component) => {
   const Guard = (props) => {
     const { isTecher } = useSelector((state) => state.auth);
-    return isTecher ? (
+
+    const islogin = localStorage.getItem("isTecher");
+
+    return islogin || isTecher ? (
       <Component {...props} />
     ) : (
       <>
@@ -19,7 +22,10 @@ const withGuardTeacher = (Component) => {
 const withGuardStudent = (Component) => {
   const Guard = (props) => {
     const { isStudent } = useSelector((state) => state.auth);
-    return isStudent ? (
+
+    const islogin = localStorage.getItem("isStudent");
+
+    return islogin || isStudent ? (
       <Component {...props} />
     ) : (
       <>
@@ -43,4 +49,4 @@ const withGuardAdmin = (Component) => {
   };
   return Guard;
 };
-export { withGuardTeacher, withGuardStudent ,withGuardAdmin};
+export { withGuardTeacher, withGuardStudent, withGuardAdmin };

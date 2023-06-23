@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { NavDropdown, Nav, Container, Navbar } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const CustomNavbar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const linkRef = useRef(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    const islogin
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    // Logic to handle the logout process
+    setIsLoggedIn(false);
+  };
+
+  // Function to toggle the link visibility based on the login status
+  const toggleLinkVisibility = () => {
+    if (linkRef.current) {
+      linkRef.current.style.display = isLoggedIn ? "none" : "block";
+    }
+  };
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -52,6 +73,9 @@ const CustomNavbar = () => {
               className="nav-link"
               onClick={() => {
                 dispatch({ type: "auth/logout" });
+
+                navigate("/");
+                localStorage.clear();
               }}
             >
               Logout

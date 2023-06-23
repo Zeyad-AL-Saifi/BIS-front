@@ -1,22 +1,21 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
-
-const Login = ({ handleSubmit }) => {
+const Login = ({ handleSubmit, color }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
+    localStorage.clear()
     handleSubmit({ email, password });
   };
   return (
-    <section className="vh-100 gradient-custom">
+    <section className="vh-100 gradient-custom ">
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-12 col-md-8 col-lg-6 col-xl-5">
             <div
-              className="card bg-dark text-white"
-              style={{ borderRadius: "1rem" }}
+              className="card  text-white"
+              style={{ borderRadius: "1rem" , backgroundColor: color }}
             >
               <div className="card-body p-5 text-center">
                 <div className="mb-md-5 mt-md-4 pb-5">

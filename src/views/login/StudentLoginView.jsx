@@ -11,17 +11,21 @@ const StudentLoginView = () => {
 
   const dispatch = useDispatch();
 
+ 
+
   const handleSubmit = (item) => {
     dispatch(loginStudent(item)).then(() => {
-      if (!isStudent) {
+      if (!isStudent && !userInfo) {
         alert(userInfo.error);
+      } else {
+        return;
       }
     });
   };
   return (
     <div>
       <Check loading={loading} error={error}>
-        <Login handleSubmit={handleSubmit} />
+        <Login handleSubmit={handleSubmit} color={"#FFAE42"} />
       </Check>
     </div>
   );
