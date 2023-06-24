@@ -7,7 +7,9 @@ const App = (props) => {
   return (
     <>
       <Header />
-      <Outlet />
+      <body>
+        <Outlet />
+      </body>
       <Footer />
     </>
   );

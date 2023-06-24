@@ -6,13 +6,13 @@ import { withGuardStudent } from "../../utils/guard/auth/WithGuard";
 import { useSelector } from "react-redux";
 
 const StudentView = () => {
-  const { userInfo } = useSelector((state) => state.auth);
+  // const { userInfo } = useSelector((state) => state.auth);
 
   const userData = JSON.parse(localStorage.getItem("user"));
 
   return (
     <div>
-      <StudentBody userInfo={userData || userInfo} />
+      <StudentBody userInfo={userData } />
     </div>
   );
 };

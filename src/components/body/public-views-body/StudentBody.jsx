@@ -7,12 +7,12 @@ import { useEffect } from "react";
 import { getAllStudentNote } from "../../../store/notes/studentNotes/studentNotesSlice";
 
 const StudentBody = ({ userInfo }) => {
+  const dispatch = useDispatch();
   const { loading, error, records } = useSelector((state) => state.studentnote);
 
-  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllStudentNote());
-  },[dispatch]);
+  }, [dispatch]);
   return (
     <div>
       <div className="col">
