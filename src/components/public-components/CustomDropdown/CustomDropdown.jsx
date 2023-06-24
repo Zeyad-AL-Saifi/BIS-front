@@ -1,24 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllStudents } from "../../../store/profile/students/studentsSlice";
 import { Form } from "react-bootstrap";
 
-const CustomDropdown = ({ handleSelect }) => {
+const CustomDropdown = ({ handleSelect, records }) => {
   const [value, setValue] = useState("");
   const [filteredOptions, setFilteredOptions] = useState([]);
 
-  const dispatch = useDispatch();
-  const { records } = useSelector((state) => state.students);
-
-  useEffect(() => {
-    dispatch(getAllStudents());
-  }, [dispatch]);
-
-  const studentNames = records.map((student) => student.full_name);
+  const Names = records.map((student) => student.full_name);
 
   const filterOptions = (inputValue) => {
     const inputValueLowerCase = inputValue.toLowerCase();
-    return studentNames.filter((name) =>
+    return Names.filter((name) =>
       name.toLowerCase().includes(inputValueLowerCase)
     );
   };

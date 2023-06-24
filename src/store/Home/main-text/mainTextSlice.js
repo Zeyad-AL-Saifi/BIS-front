@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 const initialState = { records: [], loading: false, error: null, record: null };
-
+const token = localStorage.getItem('token');
 //for get the text 
 export const getMainText = createAsyncThunk(
     "maintext/getmaintext",
@@ -31,7 +31,8 @@ export const updateMainText = createAsyncThunk(
                 body: JSON.stringify(item),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",
-                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjg2ODQ4Nzk3fQ.lLbG9qyrbFMyKUl4JZO_bftFMVlpIFLsi7GhcCU7yCs"
+                    "token": token 
+
                 }
 
             });

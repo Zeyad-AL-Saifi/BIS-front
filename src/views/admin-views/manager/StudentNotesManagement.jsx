@@ -8,7 +8,7 @@ import {
 } from "../../../store/notes/studentNotes/studentNotesSlice";
 import NoteManageBody from "../../../components/admin-components/note-component/NoteManageBody";
 const StudentNotesManagement = () => {
-  const { records, loading, error } = useSelector((state) => state.studentnote);
+  const { records} = useSelector((state) => state.studentnote);
 
   const [filterNote, setfilterNote] = useState([]);
   const [value, setValue] = useState("");

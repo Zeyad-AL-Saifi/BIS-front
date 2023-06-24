@@ -5,10 +5,11 @@ import FormSendNotes from "../../form/FormSendNotes";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAllTeacherNote } from "../../../store/notes/teacherNotes/teacherNotesSlice.js";
+import Check from "../../../utils/guard/load/Check";
 
 const StudentBody = ({ userInfo }) => {
   const dispatch = useDispatch();
-  const { records } = useSelector((state) => state.teachernote);
+  const { records, loading, error } = useSelector((state) => state.teachernote);
 
   useEffect(() => {
     dispatch(getAllTeacherNote());
@@ -19,13 +20,13 @@ const StudentBody = ({ userInfo }) => {
       ele.note_status_code === 1 && ele.student_name_to === userInfo.full_name
   );
   return (
-    <div>
+    <Check loading={loading} error={error}>
       <div className="col">
         <ProfileInfo userInfo={userInfo} />
         <NotesCome filteredData={filteredData} userInfo={userInfo} />
-        <FormSendNotes userInfo={userInfo} />
+        <FormSendNotes userInfo={userInfo} isStudent={true} />
       </div>
-    </div>
+    </Check>
   );
 };
 

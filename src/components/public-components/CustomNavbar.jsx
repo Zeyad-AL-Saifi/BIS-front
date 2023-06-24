@@ -10,11 +10,10 @@ const CustomNavbar = () => {
   const { isTeacher, isStudent } = useSelector((state) => state.auth);
 
   const handleLogout = () => {
+    navigate("/");
     dispatch({ type: "auth/logout" });
 
     localStorage.clear();
-
-    navigate("/");
   };
 
   // Function to toggle the link visibility based on the login status
@@ -71,7 +70,7 @@ const CustomNavbar = () => {
             <Link to="/help" className="nav-link">
               Help
             </Link>
-            {isStudentLoacal || !isTeacherLoacal ? (
+            {isStudentLoacal || isTeacherLoacal ? (
               <button className="nav-link" onClick={handleLogout}>
                 Logout
               </button>

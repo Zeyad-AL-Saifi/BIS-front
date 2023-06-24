@@ -5,9 +5,10 @@ import { useEffect } from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getAllHomeImage } from "../../store/Home/images/homeImageSlice";
+import Check from "../../utils/guard/load/Check";
 
 const ImageSlider = () => {
-  const { records } = useSelector((state) => state.homeimage);
+  const { records, loading, error } = useSelector((state) => state.homeimage);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -29,8 +30,7 @@ const ImageSlider = () => {
   });
 
   return (
-    <div>
-      {" "}
+    <Check loading={loading} error={error}>
       <div className=" border-top border-3">
         <div className="container-xl">
           <div className="row ">
@@ -45,7 +45,7 @@ const ImageSlider = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Check>
   );
 };
 

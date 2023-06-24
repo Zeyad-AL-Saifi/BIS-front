@@ -1,13 +1,14 @@
 import { useDispatch } from "react-redux";
 import Check from "../../utils/guard/load/Check";
-import CustomDropdown from "../public-components/CustomDropdown/CustomDropdown";
 import { useState } from "react";
 import getFormattedDateTime from "../../hooks/getDate";
 import { addTeacherNote } from "../../store/notes/teacherNotes/teacherNotesSlice";
-const FormSendNotes = ({ userInfo }) => {
+import { addStudentNote } from "../../store/notes/studentNotes/studentNotesSlice";
+import CustomDropTeacher from "../public-components/CustomDropdown/CustomDropTeacher";
+import CustomDropStudent from "../public-components/CustomDropdown/CustomDropStudent";
+const FormSendNotes = ({ userInfo, isStudent }) => {
   const [forHow, setForHow] = useState("");
   const [note, setNote] = useState("");
-
   const dispatch = useDispatch();
   const handleSelect = (event) => {
     const selectedValue = event.target.value;
@@ -22,18 +23,31 @@ const FormSendNotes = ({ userInfo }) => {
         "you cannot send not wthout select for how you want send and write youe note please"
       );
     } else {
-      dispatch(
-        addTeacherNote({
-          teacher_id_from: userInfo.teacher_id,
-          teacher_name_from: userInfo.full_name,
-          student_name_to: forHow,
-          note_status_code: 0,
-          note: note,
-          time: date,
-        })
-      ).then(() => {
-        alert("Send Note Successfully 👌😁");
-      });
+      isStudent
+        ? dispatch(
+            addStudentNote({
+              student_id_from: userInfo.id_student,
+              student_name_from: userInfo.full_name,
+              teacher_name_to: forHow,
+              note_status_code: 0,
+              note: note,
+              time: date,
+            })
+          ).then(() => {
+            alert("Send Note Successfully 👌😁");
+          })
+        : dispatch(
+            addTeacherNote({
+              teacher_id_from: userInfo.teacher_id,
+              teacher_name_from: userInfo.full_name,
+              student_name_to: forHow,
+              note_status_code: 0,
+              note: note,
+              time: date,
+            })
+          ).then(() => {
+            alert("Send Note Successfully 👌😁");
+          });
     }
   };
   return (
@@ -55,7 +69,11 @@ const FormSendNotes = ({ userInfo }) => {
                 placeholder="Enter your name"
               />
             </div>
-            <CustomDropdown handleSelect={handleSelect} />
+            {isStudent ? (
+              <CustomDropTeacher handleSelect={handleSelect} />
+            ) : (
+              <CustomDropStudent handleSelect={handleSelect} />
+            )}
             <div className="mb-3">
               <label htmlFor="messageInput" className="form-label">
                 Message

@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 const initialState = { records: [], loading: false, error: null, record: null };
-
+const token = localStorage.getItem('token');
 //for get all teachers 
 export const getAllteachers = createAsyncThunk(
     "teachers/getallteachers",
@@ -23,10 +23,7 @@ export const getAllteachers = createAsyncThunk(
 //add new teacher
 export const registrationTeacher = createAsyncThunk(
     "teachers/registrationTeacher", async (item, thunkAPI) => {
-        const { rejectWithValue, getState } = thunkAPI;
-        // const { auth } = getState();
-        // item.userId = auth.id;
-
+        const { rejectWithValue, } = thunkAPI;
         const { full_name, address, mobile_number, gender, major, password, email, is_admin, } = item;
         try {
             const res = await fetch("http://localhost:4500/registration/teacher", {
@@ -44,7 +41,8 @@ export const registrationTeacher = createAsyncThunk(
                 },),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",
-                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjg2ODQ4Nzk3fQ.lLbG9qyrbFMyKUl4JZO_bftFMVlpIFLsi7GhcCU7yCs"
+                    "token": token 
+
                 }
             });
             const data = await res.json();
@@ -90,7 +88,8 @@ export const updateteachers = createAsyncThunk(
                 }),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",
-                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjg2ODQ4Nzk3fQ.lLbG9qyrbFMyKUl4JZO_bftFMVlpIFLsi7GhcCU7yCs"
+                    "token": token 
+
                 }
 
             });
@@ -108,15 +107,15 @@ export const updateteachers = createAsyncThunk(
 //delete teachers
 export const deleteteachers = createAsyncThunk(
     "teachers/deleteteachers", async (id, thunkAPI) => {
-        const { rejectWithValue, getState } = thunkAPI;
-        // const { auth } = getState();
-        // item.userId = auth.id;
+        const { rejectWithValue } = thunkAPI;
+
         try {
             await fetch(`http://localhost:4500/teachers/${id}`,
                 {
                     method: "DELETE",
                     headers: {
-                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjg2ODQ4Nzk3fQ.lLbG9qyrbFMyKUl4JZO_bftFMVlpIFLsi7GhcCU7yCs"
+                        "token": token 
+
 
                     }
                 }

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = { records: [], loading: false, error: null, record: null };
-
+const token = localStorage.getItem('token');
 //for get all studentnote
 export const getAllStudentNote = createAsyncThunk(
   "studentnote/getallstudentnote",
@@ -21,9 +21,8 @@ export const getAllStudentNote = createAsyncThunk(
 export const addStudentNote = createAsyncThunk(
   "studentnote/addstudentnote",
   async (item, thunkAPI) => {
-    const { rejectWithValue, getState } = thunkAPI;
-    // const { auth } = getState();
-    // item.userId = auth.id;
+    const { rejectWithValue } = thunkAPI;
+
     try {
       const res = await fetch("http://localhost:4500/studentnote", {
         method: "POST",
@@ -76,8 +75,8 @@ export const updateStudentNote = createAsyncThunk(
           method: "PUT",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
-            // token:
-            // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjg2ODQ4Nzk3fQ.lLbG9qyrbFMyKUl4JZO_bftFMVlpIFLsi7GhcCU7yCs",
+            token:token 
+,
           },
         }
       );
@@ -93,9 +92,8 @@ export const updateStudentNote = createAsyncThunk(
 export const deleteStudentNote = createAsyncThunk(
   "studentnote/deletestudentnote",
   async (id, thunkAPI) => {
-    const { rejectWithValue, getState } = thunkAPI;
-    // const { auth } = getState();
-    // item.userId = auth.id;
+    const { rejectWithValue } = thunkAPI;
+
     try {
       await fetch(`http://localhost:4500/studentnote/${id}`, {
         method: "DELETE",

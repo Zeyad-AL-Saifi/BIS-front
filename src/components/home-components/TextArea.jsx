@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { getMainText } from "../../store/Home/main-text/mainTextSlice";
 
 import "../../utils/css/homeContent.css";
+import Check from "../../utils/guard/load/Check";
 const TextArea = () => {
   const { error, loading, records } = useSelector((state) => state.maintext);
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const TextArea = () => {
     );
   });
   return (
-    <div>
+    <Check loading={loading} error={error}>
       {" "}
       <div>
         <div className="container  p-4">
@@ -27,7 +28,7 @@ const TextArea = () => {
           <div> {data}</div>
         </div>
       </div>
-    </div>
+    </Check>
   );
 };
 

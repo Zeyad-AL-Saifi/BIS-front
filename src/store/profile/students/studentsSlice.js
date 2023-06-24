@@ -4,6 +4,7 @@ import axios from "axios";
 
 
 const initialState = { records: [], loading: false, error: null, record: null };
+const token = localStorage.getItem('token');
 
 //for get all students 
 export const getAllStudents = createAsyncThunk(
@@ -23,11 +24,10 @@ export const getAllStudents = createAsyncThunk(
 //add new students
 export const registrationStudents = createAsyncThunk(
     "students/registrationstudents", async (item, thunkAPI) => {
-        const { rejectWithValue, getState } = thunkAPI;
-        // const { auth } = getState();
-        // item.userId = auth.id;
+        const { rejectWithValue } = thunkAPI;
 
-        const { full_name, address,class_number, mobile_number, gender, data_of_birth, password, email, } = item;
+
+        const { full_name, address, class_number, mobile_number, gender, data_of_birth, password, email, } = item;
         try {
             const res = await fetch("http://localhost:4500/registration/student", {
                 method: "POST",
@@ -44,7 +44,7 @@ export const registrationStudents = createAsyncThunk(
                 },),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",
-                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjg2ODQ4Nzk3fQ.lLbG9qyrbFMyKUl4JZO_bftFMVlpIFLsi7GhcCU7yCs"
+                    "token": token
 
                 }
 
@@ -88,12 +88,13 @@ export const updateStudents = createAsyncThunk(
                     mobile_number: item.mobile_number,
                     class_number: item.class_number,
                     email: item.email,
-                    student_image:"ss"
+                    student_image: "ss"
 
                 }),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",
-                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjg2ODQ4Nzk3fQ.lLbG9qyrbFMyKUl4JZO_bftFMVlpIFLsi7GhcCU7yCs"
+                    "token": token
+
                 }
 
             });
@@ -111,15 +112,15 @@ export const updateStudents = createAsyncThunk(
 //delete students
 export const deleteStudents = createAsyncThunk(
     "students/deletestudents", async (id, thunkAPI) => {
-        const { rejectWithValue, getState } = thunkAPI;
-        // const { auth } = getState();
-        // item.userId = auth.id;
+        const { rejectWithValue } = thunkAPI;
+
         try {
             await fetch(`http://localhost:4500/students/${id}`,
                 {
                     method: "DELETE",
                     headers: {
-                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjg2ODQ4Nzk3fQ.lLbG9qyrbFMyKUl4JZO_bftFMVlpIFLsi7GhcCU7yCs"
+                        "token": token
+
 
                     }
                 }

@@ -1,21 +1,23 @@
 import React from "react";
-
+import "./ProfileInfo.css";
 import NoteCard from "../public-components/NoteCard";
 const NotesCome = ({ filteredData, userInfo }) => {
-
-
   const data = filteredData.map((ele) => {
     return <NoteCard ele={ele} key={ele.note_id} />;
   });
   return (
-    <div>
-      <div className="row notes ">
-        <h3>Notes come For you : {userInfo.full_name}</h3>
-        <div className="col ">
-          <div className="row-auto ">{data}</div>
-        </div>
+    <>
+      <div className="col notes  ">
+        <h3 className="row ">Notes come For you : ℹ️</h3>
+        <div className="row row-cols-md-1 row-cols-lg-2 row-cols-xl-3 row-cols-xxl-4 ">
+ 
+    {data}
+
+</div>
       </div>
-    </div>
+
+     
+    </>
   );
 };
 

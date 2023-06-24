@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = { records: [], loading: false, error: null, record: null };
-
+const token = localStorage.getItem('token');
 //for get all homeimage 
 export const getAllHomeImage = createAsyncThunk(
     "homeimage/getallhomeimage",
@@ -41,9 +41,8 @@ export const getHomeImageById = createAsyncThunk(
 //post homeimage
 export const addNewImage = createAsyncThunk(
     "homeimage/addnewimage", async (file, thunkAPI) => {
-        const { rejectWithValue, getState } = thunkAPI;
-        // const { auth } = getState();
-        // item.userId = auth.id;
+        const { rejectWithValue } = thunkAPI;
+ 
         try {
             const formData = new FormData();
             formData.append('image', file, file.name);
@@ -51,7 +50,8 @@ export const addNewImage = createAsyncThunk(
                 method: "POST",
                 body: formData,
                 headers: {
-                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjg2ODQ4Nzk3fQ.lLbG9qyrbFMyKUl4JZO_bftFMVlpIFLsi7GhcCU7yCs"
+                    "token": token
+
 
                 }
             });
@@ -66,15 +66,15 @@ export const addNewImage = createAsyncThunk(
 //delete homeimage
 export const deleteImage = createAsyncThunk(
     "homeimage/deleteimage", async (id, thunkAPI) => {
-        const { rejectWithValue, getState } = thunkAPI;
-        // const { auth } = getState();
-        // item.userId = auth.id;
+        const { rejectWithValue, } = thunkAPI;
+
         try {
             await fetch(`http://localhost:4500/home/images/${id}`,
                 {
                     method: "DELETE",
                     headers: {
-                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjg2ODQ4Nzk3fQ.lLbG9qyrbFMyKUl4JZO_bftFMVlpIFLsi7GhcCU7yCs"
+                        "token": token
+
 
                     }
                 }

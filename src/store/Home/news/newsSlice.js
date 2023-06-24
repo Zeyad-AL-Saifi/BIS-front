@@ -4,6 +4,7 @@ import axios from "axios";
 
 
 const initialState = { records: [], loading: false, error: null, record: null };
+; const token = localStorage.getItem('token');
 
 //for get all news 
 export const getAllNews = createAsyncThunk(
@@ -50,7 +51,8 @@ export const updateNews = createAsyncThunk(
                 }),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",
-                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjg2ODQ4Nzk3fQ.lLbG9qyrbFMyKUl4JZO_bftFMVlpIFLsi7GhcCU7yCs"
+                    "token": token
+
                 }
 
             });
@@ -67,9 +69,8 @@ export const updateNews = createAsyncThunk(
 //post news
 export const addNews = createAsyncThunk(
     "news/addnews", async (item, thunkAPI) => {
-        const { rejectWithValue, getState } = thunkAPI;
-        // const { auth } = getState();
-        // item.userId = auth.id;
+        const { rejectWithValue } = thunkAPI;
+
         try {
             const res = await fetch("http://localhost:4500/home/news", {
                 method: "POST",
@@ -79,7 +80,8 @@ export const addNews = createAsyncThunk(
                 }),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",
-                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjg2ODQ4Nzk3fQ.lLbG9qyrbFMyKUl4JZO_bftFMVlpIFLsi7GhcCU7yCs"
+                    "token": token
+
 
                 }
             });
@@ -94,15 +96,15 @@ export const addNews = createAsyncThunk(
 //delete news
 export const deleteNews = createAsyncThunk(
     "news/deletenews", async (id, thunkAPI) => {
-        const { rejectWithValue, getState } = thunkAPI;
-        // const { auth } = getState();
-        // item.userId = auth.id;
+        const { rejectWithValue } = thunkAPI;
+
         try {
             await fetch(`http://localhost:4500/home/news/${id}`,
                 {
                     method: "DELETE",
                     headers: {
-                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc19hZG1pbiI6dHJ1ZSwiaWF0IjoxNjg2ODQ4Nzk3fQ.lLbG9qyrbFMyKUl4JZO_bftFMVlpIFLsi7GhcCU7yCs"
+                        "token": token
+
 
                     }
                 }

@@ -1,11 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { deleteTeacherNote, getAllTeacherNote, updateTeacherNote } from '../../../store/notes/teacherNotes/teacherNotesSlice'
+import {
+  deleteTeacherNote,
+  getAllTeacherNote,
+  updateTeacherNote,
+} from "../../../store/notes/teacherNotes/teacherNotesSlice";
 
 import NoteManageBody from "../../../components/admin-components/note-component/NoteManageBody";
 const TeacherNotesManagement = () => {
-  const { records, loading, error } = useSelector((state) => state.teachernote);
+  const { records } = useSelector((state) => state.teachernote);
 
   const [filterNote, setfilterNote] = useState([]);
   const [value, setValue] = useState("");
@@ -41,7 +45,9 @@ const TeacherNotesManagement = () => {
   };
   return (
     <div>
-  <div>        <NoteManageBody
+      <div>
+        
+        <NoteManageBody
           handelInput={handelInput}
           handelDelete={handelDelete}
           handelUpdateStatusCode={handelUpdateStatusCode}
