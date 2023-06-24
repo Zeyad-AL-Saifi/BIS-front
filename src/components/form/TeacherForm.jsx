@@ -2,7 +2,7 @@ import FormGroup from "./FormGroup";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { Button, Form } from "react-bootstrap";
-import { registerSchemaTecher } from "../../utils/validation/validationSchema";
+import { registerSchemaTeacher } from "../../utils/validation/validationSchema";
 import { useNavigate } from "react-router-dom";
 import { registrationTeacher } from "../../store/profile/teachers/teachersSlice";
 
@@ -19,9 +19,9 @@ const TeacherForm = () => {
       password: "",
       email: "",
       is_admin: false,
-      techer_image: "",
+      teacher_image: "",
     },
-    validationSchema: registerSchemaTecher,
+    validationSchema: registerSchemaTeacher,
     onSubmit: (values) => {
       dispatch(registrationTeacher(values))
         .then((action) => {

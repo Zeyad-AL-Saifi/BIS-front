@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 const initialState = {
     isStudent: false,
     isAdmin: false,
-    isTecher: false,
+    isTeacher: false,
     loading: false,
     error: null,
     accessToken: "",
@@ -24,10 +24,17 @@ export const loginTeacher = createAsyncThunk(
                     "Content-type": "application/json; charset=UTF-8",
                 }
             });
-
             const data = await res.json();
 
+            if (res.status !== 200) {
+                throw new Error(data.error)
+            } else {
+            }
             return data;
+
+
+
+
 
 
         } catch (error) {
@@ -47,8 +54,12 @@ export const loginStudent = createAsyncThunk(
                     "Content-type": "application/json; charset=UTF-8",
                 }
             });
-
             const data = await res.json();
+
+            if (res.status !== 200) {
+                throw new Error(data.error)
+            } else {
+            }
             return data;
 
 
@@ -78,10 +89,10 @@ const authSlice = createSlice({
             state.accessToken = action.payload.token;
             state.userInfo = action.payload;
             if (state.accessToken) {
-                state.isTecher = true
+                state.isTeacher = true
                 localStorage.setItem('token', action.payload.token);
                 localStorage.setItem('user', JSON.stringify(state.userInfo));
-                localStorage.setItem('isTecher', state.isTecher);
+                localStorage.setItem('isTeacher', state.isTeacher);
             }
             if (state.accessToken && state.userInfo.is_admin) {
                 state.isAdmin = true
@@ -90,6 +101,7 @@ const authSlice = createSlice({
         builder.addCase(loginTeacher.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
+            alert(state.error);
         })
         //login student
 
@@ -100,13 +112,12 @@ const authSlice = createSlice({
         })
         builder.addCase(loginStudent.fulfilled, (state, action) => {
             state.loading = false;
-            state.userInfo = action.payload;
             state.accessToken = action.payload.token;
+            state.userInfo = action.payload;
             if (state.accessToken) {
                 state.isStudent = true
                 localStorage.setItem('token', action.payload.token);
                 localStorage.setItem('user', JSON.stringify(state.userInfo));
-
                 localStorage.setItem('isStudent', state.isStudent);
 
             }
@@ -114,6 +125,9 @@ const authSlice = createSlice({
         builder.addCase(loginStudent.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
+
+            alert(state.error);
+
         })
 
 

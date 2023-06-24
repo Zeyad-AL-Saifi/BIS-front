@@ -1,12 +1,15 @@
 import React from "react";
-import { useEffect,useState ,useCallback} from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteStudents, getAllStudents } from "../../../store/profile/students/studentsSlice";
-import Check from "../../../utils/guard/load/Check";
-import FilterForm from '../../../components/admin-components/public/filterForm'
-import ProfileCardCompo from '../../../components/admin-components/profile-component/ProfileCardCompo'
+import {
+  deleteStudents,
+  getAllStudents,
+} from "../../../store/profile/students/studentsSlice";
+
+import FilterForm from "../../../components/admin-components/public/filterForm";
+import ProfileCardCompo from "../../../components/admin-components/profile-component/ProfileCardCompo";
 const StudentManagement = () => {
-  const { loading, error, records } = useSelector((state) => state.students);
+  const { records } = useSelector((state) => state.students);
   const [filterUsers, setFilterUsers] = useState([]);
   const [value, setValue] = useState("");
 
@@ -37,7 +40,8 @@ const StudentManagement = () => {
   );
 
   return (
-    <Check loading={loading} error={error}>
+    <div>
+      {" "}
       <div>
         <FilterForm handelInput={handelInput} />
         <div>
@@ -53,7 +57,7 @@ const StudentManagement = () => {
           handelDelete={handelDelete}
         />
       </div>
-    </Check>
+    </div>
   );
 };
 

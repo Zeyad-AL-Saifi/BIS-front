@@ -2,10 +2,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Check from "../../../utils/guard/load/Check";
-import { getMainText, updateMainText }from '../../../store/Home/main-text/mainTextSlice'
+import {
+  getMainText,
+  updateMainText,
+} from "../../../store/Home/main-text/mainTextSlice";
 
 const TextComp = () => {
-  const { loading, error, record } = useSelector((state) => state.maintext);
+  const { record, loading, error } = useSelector((state) => state.maintext);
 
   const [text, setText] = useState();
 

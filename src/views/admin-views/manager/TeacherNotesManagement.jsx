@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { deleteTeacherNote, getAllTeacherNote, updateTeacherNote } from '../../../store/notes/teacherNotes/teacherNotesSlice'
-import Check from "../../../utils/guard/load/Check";
+
 import NoteManageBody from "../../../components/admin-components/note-component/NoteManageBody";
 const TeacherNotesManagement = () => {
   const { records, loading, error } = useSelector((state) => state.teachernote);
@@ -41,15 +41,14 @@ const TeacherNotesManagement = () => {
   };
   return (
     <div>
-      <Check loading={loading} error={error}>
-        <NoteManageBody
+  <div>        <NoteManageBody
           handelInput={handelInput}
           handelDelete={handelDelete}
           handelUpdateStatusCode={handelUpdateStatusCode}
           title={"Teacher Notes Table 🙌"}
           filterNote={filterNote}
         />
-      </Check>
+      </div>
     </div>
   );
 };

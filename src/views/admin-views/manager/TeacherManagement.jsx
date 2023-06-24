@@ -6,7 +6,7 @@ import {
   deleteteachers,
   getAllteachers,
 } from "../../../store/profile/teachers/teachersSlice";
-import Check from "../../../utils/guard/load/Check";
+
 import ProfileCardCompo from "../../../components/admin-components/profile-component/ProfileCardCompo";
 
 const TeacherManagement = () => {
@@ -42,8 +42,7 @@ const TeacherManagement = () => {
   );
 
   return (
-    <Check loading={loading} error={error}>
-      <FilterForm handelInput={handelInput} />
+<div>      <FilterForm handelInput={handelInput} />
       <div>
         <h3>You can manage the teacher from here </h3>
         <p>
@@ -53,7 +52,7 @@ const TeacherManagement = () => {
         <p>Remember the yellow card is Admin Account 👌</p>
       </div>
       <ProfileCardCompo records={filterUsers} handelDelete={handelDelete} />
-    </Check>
+    </div>
   );
 };
 

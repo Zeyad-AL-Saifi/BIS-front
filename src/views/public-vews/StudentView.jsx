@@ -2,16 +2,17 @@ import React from "react";
 import "../../utils/css/profile.css";
 import StudentBody from "../../components/body/public-views-body/StudentBody";
 import { withGuardStudent } from "../../utils/guard/auth/WithGuard";
-import Check from "../../utils/guard/load/Check";
+
 import { useSelector } from "react-redux";
 
 const StudentView = () => {
   const { loading, error, userInfo } = useSelector((state) => state.auth);
 
+  const userData = JSON.parse(localStorage.getItem("user"));
+
   return (
-    <Check loading={loading} error={error}>
-      <StudentBody userInfo={userInfo} />
-    </Check>
+<div>      <StudentBody userInfo={userData || userInfo} />
+    </div>
   );
 };
 

@@ -1,14 +1,17 @@
 import React from "react";
-import { Spinner } from "react-bootstrap";
-
+import { css } from "@emotion/react";
+import { ClipLoader } from "react-spinners";
+import "./loading.css";
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 const Loading = () => {
   return (
-    <div>
-      <div className="d-flex justify-content-center">
-        <Spinner animation="border" role="status">
-          <span className="sr-only"></span>
-        </Spinner>
-      </div>
+    <div className="loading-page">
+      <ClipLoader color="#000" css={override} size={50} />
+      <p> Loading...</p>
     </div>
   );
 };

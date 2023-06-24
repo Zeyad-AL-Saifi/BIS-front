@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllNews } from "../../store/Home/news/newsSlice";
-import Check from "../../utils/guard/load/Check";
+
 import '../../utils/css/NewsContainer.css'
 import NewsCard from '../public-components/NewsCard'
 
@@ -20,15 +20,14 @@ const NewsContainer = (props) => {
     );
   });
   return (
-    <Check loading={loading} error={error}>
-      <div className="container">
+<div>      <div className="container">
         <h3>{props.title}</h3>
         <p>{props.content}</p>
         <div className="row row-cols-md-1 row-cols-lg-1 row-cols-xl-2 row-cols-xxl-3  ">
           {data}
         </div>
       </div>
-    </Check>
+    </div>
   );
 };
 

@@ -1,14 +1,14 @@
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Check from "../../../../utils/guard/load/Check";
+
 import {
   addNewImage,
   deleteImage,
   getAllHomeImage,
 } from "../../../../store/Home/images/homeImageSlice";
-import "./ImageComp.css"
+import "./ImageComp.css";
 const ImageComp = () => {
-  const { loading, error, records } = useSelector((state) => state.homeimage);
+  const {records } = useSelector((state) => state.homeimage);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -57,7 +57,7 @@ const ImageComp = () => {
   };
 
   return (
-    <Check loading={loading} error={error}>
+    <div>
       <div className="m-4">
         <div className="container  w-100">
           <h3> Home Images Slider</h3>
@@ -87,7 +87,7 @@ const ImageComp = () => {
           </div>
         </div>
       </div>
-    </Check>
+    </div>
   );
 };
 

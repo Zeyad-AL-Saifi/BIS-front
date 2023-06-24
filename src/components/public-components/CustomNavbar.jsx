@@ -1,30 +1,25 @@
-import React, { useRef, useState } from "react";
+import { useState } from "react";
 import { NavDropdown, Nav, Container, Navbar } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 const CustomNavbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const linkRef = useRef(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleLogin = () => {
-    const islogin
-    setIsLoggedIn(true);
-  };
+  const isTeacherLoacal = localStorage.getItem("isTeacher");
+  const isStudentLoacal = localStorage.getItem("isStudent");
+  const { isTeacher, isStudent } = useSelector((state) => state.auth);
 
   const handleLogout = () => {
-    // Logic to handle the logout process
-    setIsLoggedIn(false);
+    dispatch({ type: "auth/logout" });
+
+    localStorage.clear();
+
+    navigate("/");
   };
 
   // Function to toggle the link visibility based on the login status
-  const toggleLinkVisibility = () => {
-    if (linkRef.current) {
-      linkRef.current.style.display = isLoggedIn ? "none" : "block";
-    }
-  };
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -41,12 +36,20 @@ const CustomNavbar = () => {
               Home
             </Link>
 
-            <Link to="/student" className="nav-link">
-              Student
-            </Link>
-            <Link to="/teacher" className="nav-link">
-              Teacher
-            </Link>
+            {isTeacherLoacal || isTeacher ? (
+              ""
+            ) : (
+              <Link to="/student" className="nav-link">
+                Student
+              </Link>
+            )}
+            {isStudent || isStudentLoacal ? (
+              ""
+            ) : (
+              <Link to="/teacher" className="nav-link">
+                Teacher
+              </Link>
+            )}
             <NavDropdown title="Admin" id="collasible-nav-dropdown">
               <NavDropdown.Item>
                 <Link to="/admin" className="nav-link text-dark">
@@ -69,17 +72,13 @@ const CustomNavbar = () => {
             <Link to="/help" className="nav-link">
               Help
             </Link>
-            <button
-              className="nav-link"
-              onClick={() => {
-                dispatch({ type: "auth/logout" });
-
-                navigate("/");
-                localStorage.clear();
-              }}
-            >
-              Logout
-            </button>
+            {isStudentLoacal || isTeacherLoacal ? (
+              <button className="nav-link" onClick={handleLogout}>
+                Logout
+              </button>
+            ) : (
+              ""
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

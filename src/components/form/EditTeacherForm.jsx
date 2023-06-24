@@ -8,13 +8,13 @@ import {
   updateteachers,
 } from "../../store/profile/teachers/teachersSlice";
 import FormGroup from "./FormGroup";
-import { updateTecherSchema } from "../../utils/validation/validationSchema";
+import { updateTeacherSchema } from "../../utils/validation/validationSchema";
 
 const EditTeacherForm = ({ item, handleCloseModal }) => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: item,
-    validationSchema: updateTecherSchema,
+    validationSchema: updateTeacherSchema,
     onSubmit: (values) => {
       dispatch(updateteachers(values))
         .then((action) => {

@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Check from "../../../utils/guard/load/Check";
+
 import {
   deleteStudentNote,
   getAllStudentNote,
@@ -43,15 +43,14 @@ const StudentNotesManagement = () => {
     dispatch(updateStudentNote(item)).then(dispatch(getAllStudentNote()));
   };
   return (
-    <Check loading={loading} error={error}>
-      <NoteManageBody
+<div>      <NoteManageBody
         handelInput={handelInput}
         handelDelete={handelDelete}
         handelUpdateStatusCode={handelUpdateStatusCode}
         title={"Students Notes Table 🙌"}
         filterNote={filterNote}
       />
-    </Check>
+    </div>
   );
 };
 

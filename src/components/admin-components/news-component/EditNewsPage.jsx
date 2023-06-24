@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+
+import { updateNews } from "../../../store/Home/news/newsSlice";
 import Check from "../../../utils/guard/load/Check";
-import { updateNews } from '../../../store/Home/news/newsSlice'
 const EditNewsPage = ({
   showModal,
   handleCloseModal,
@@ -66,6 +67,7 @@ const EditNewsPage = ({
                 />
               </div>
               <Check loading={loading} error={error}>
+              
                 <button type="submit" className="btn btn-primary m-3">
                   Submit
                 </button>
