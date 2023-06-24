@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NavDropdown, Nav, Container, Navbar } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";

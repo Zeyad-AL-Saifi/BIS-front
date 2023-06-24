@@ -36,8 +36,9 @@ const NoteManageBody = ({
       handelUpdateStatusCode(item);
     }
   };
+  const filteredData = filterNote.filter((ele) => ele.note_status_code === 0);
 
-  const data = filterNote.map((ele, index) => {
+  const data = filteredData.map((ele, index) => {
     return (
       <NoteInTable
         key={ele.note_id}

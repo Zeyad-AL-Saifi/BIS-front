@@ -42,8 +42,10 @@ const StudentNotesManagement = () => {
   const handelUpdateStatusCode = (item) => {
     dispatch(updateStudentNote(item)).then(dispatch(getAllStudentNote()));
   };
+  
   return (
-<div>      <NoteManageBody
+    <div>
+      <NoteManageBody
         handelInput={handelInput}
         handelDelete={handelDelete}
         handelUpdateStatusCode={handelUpdateStatusCode}

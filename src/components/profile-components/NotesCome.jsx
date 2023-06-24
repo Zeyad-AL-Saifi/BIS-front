@@ -1,13 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
 import NoteCard from "../public-components/NoteCard";
-const NotesCome = ({ userInfo }) => {
-  const { loading, error } = useSelector((state) => state.studentnote);
-
+const NotesCome = ({ records, userInfo }) => {
+  const filteredData = records.filter(
+    (ele) => ele.note_status_code === 1 && ele.full_name === userInfo.full_name
+  );
+  console.log(filteredData);
   return (
-<div>      <div className="row notes ">
-        <h3>Notes come For you :</h3>
+    <div>
+      {" "}
+      <div className="row notes ">
+        <h3>Notes come For you : {userInfo.full_name}</h3>
         <div className="col ">
           <div className="row-auto ">
             <NoteCard />
