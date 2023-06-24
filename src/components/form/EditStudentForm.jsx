@@ -7,6 +7,8 @@ import FormGroup from './FormGroup'
 import {updateStudentsSchema} from '../../utils/validation/validationSchema'
 const EditStudentForm = ({ item, handleCloseModal }) => {
   const dispatch = useDispatch();
+
+
   const formik = useFormik({
     initialValues: item,
     validationSchema: updateStudentsSchema,
@@ -36,7 +38,7 @@ const EditStudentForm = ({ item, handleCloseModal }) => {
           id="name"
           onChange={formik.handleChange}
           value={formik.values.full_name}
-          isInvalid={!!formik.errors.full_name}
+           
         />
         <Form.Control.Feedback type="invalid">
           {formik.errors.full_name}

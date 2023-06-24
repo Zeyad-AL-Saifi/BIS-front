@@ -71,7 +71,7 @@ const CustomNavbar = () => {
             <Link to="/help" className="nav-link">
               Help
             </Link>
-            {isStudentLoacal || isTeacherLoacal ? (
+            {isStudentLoacal || !isTeacherLoacal ? (
               <button className="nav-link" onClick={handleLogout}>
                 Logout
               </button>

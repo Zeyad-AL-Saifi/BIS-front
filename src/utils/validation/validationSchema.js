@@ -55,4 +55,9 @@ const updateStudentsSchema = yup.object({
   class_number: yup.number()
 });
 
-export { loginSchema,registerSchemaStudents, registerSchemaTeacher, updateTeacherSchema ,updateStudentsSchema};
+const validationSchema = yup.object().shape({
+  note: yup.string().required("note is required"),
+  forHow: yup.string().required("for How is required"),
+});
+
+export { loginSchema, registerSchemaStudents, registerSchemaTeacher, updateTeacherSchema, updateStudentsSchema ,validationSchema};

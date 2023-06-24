@@ -50,13 +50,14 @@ export const addTeacherNote = createAsyncThunk(
 //get teachernote by id
 export const getTeacherNoteByID = createAsyncThunk(
   "teachernote/getteachernotebyid",
-  async (id, thunkAPI) => {
+  async (name, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await fetch(`http://localhost:4500/teachernote/${id}`, {
+      const res = await fetch(`http://localhost:4500/teachernote/${name}`, {
         method: "Get",
       });
       const data = await res.json();
+  
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

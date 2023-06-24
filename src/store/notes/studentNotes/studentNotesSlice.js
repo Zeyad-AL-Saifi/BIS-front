@@ -50,10 +50,10 @@ export const addStudentNote = createAsyncThunk(
 //get studentnote by id
 export const getStudentNoteByID = createAsyncThunk(
   "studentnote/getstudentnotebyid",
-  async (id, thunkAPI) => {
+  async (name, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await fetch(`http://localhost:4500/studentnote/${id}`, {
+      const res = await fetch(`http://localhost:4500/studentnote/${name}`, {
         method: "Get",
       });
       const data = await res.json();

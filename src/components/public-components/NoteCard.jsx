@@ -1,20 +1,14 @@
 import React from "react";
 
-const NoteCard = () => {
+const NoteCard = ({ ele }) => {
   return (
     <div>
       <div className="card custom-card">
         <div className="card-header bg-dark text-white">
-          <h5>From :</h5>
-          <h5>Title :</h5>
-          <h5>Date :</h5>
+          <h5>From : {ele.student_name_from || ele.teacher_name_from}</h5>
+          <h5>Date : {ele.time}</h5>
         </div>
-        <div className="card-body">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque
-          ea quis molestias. Fugiat pariatur maxime quis culpa corporis vitae
-          repudiandae aliquam voluptatem veniam, est atque cumque eum delectus
-          sint!
-        </div>
+        <div className="card-body">{ele.note}</div>
       </div>
     </div>
   );
