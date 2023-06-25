@@ -49,11 +49,7 @@ export const registrationStudents = createAsyncThunk(
                 }
 
             });
-            if (res.status !== 201) {
-                alert("There is an error, try again later ")
-
-                throw new Error("Error add student");
-            };
+       
             const data = await res.json();
             return data;
         } catch (error) {

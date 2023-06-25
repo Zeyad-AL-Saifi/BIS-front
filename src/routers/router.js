@@ -7,6 +7,7 @@ import App from '../App';
 import Loading from '../utils/guard/load/loading';
 import StudentLoginView from '../views/login/StudentLoginView';
 import TeacherLoginView from '../views/login/TeacherLoginView';
+import ResetPassword from '../views/login/reset-paassword/reset-password';
 
 
 
@@ -69,6 +70,14 @@ const router = createBrowserRouter([
                     <HelpView />
                 </Suspense>,
             },
+            {
+                path: "resetpassword",
+                element: <Suspense
+                    fallback={<Loading />}>
+                    <ResetPassword />
+                </Suspense>,
+            },
+
             {
                 path: "/admin",
                 errorElement: <Error />,

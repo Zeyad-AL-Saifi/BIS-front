@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const Login = ({ handleSubmit, color }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -56,7 +57,7 @@ const Login = ({ handleSubmit, color }) => {
 
                     <p className="small mb-5 pb-lg-2">
                       <p className="text-white" href="#!">
-                        Forgot password? <a href="#" className="text-white">reset your password</a>
+                        Forgot password? <Link to="/resetpassword" className="text-white">reset your password</Link>
                       </p>
                     </p>
 

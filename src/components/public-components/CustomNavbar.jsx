@@ -50,18 +50,27 @@ const CustomNavbar = () => {
             )}
             <NavDropdown title="Admin" id="collasible-nav-dropdown">
               <NavDropdown.Item>
-                <Link to="/admin" className="nav-link text-dark">
+                <Link
+                  to="/admin/homecontentmanagement"
+                  className="nav-link text-dark"
+                >
                   Home Content Management
                 </Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link to="/admin" className="nav-link text-dark">
-                  Student Management
+                <Link
+                  to="/admin/teachermanagement"
+                  className="nav-link text-dark"
+                >
+                  Teacher Management
                 </Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link to="/admin" className="nav-link text-dark">
-                  Teacher Management
+                <Link
+                  to="/admin/studentmanagement"
+                  className="nav-link text-dark"
+                >
+                  Student Management
                 </Link>
               </NavDropdown.Item>
             </NavDropdown>

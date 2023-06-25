@@ -45,11 +45,7 @@ export const registrationTeacher = createAsyncThunk(
 
                 }
             });
-            if (res.status !== 201) {
-                alert("There is an error, try again later ")
 
-                throw new Error("Error add teacher");
-            };
             const data = await res.json();
             return data;
         } catch (error) {
