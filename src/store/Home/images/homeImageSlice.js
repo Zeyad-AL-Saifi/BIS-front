@@ -42,7 +42,7 @@ export const getHomeImageById = createAsyncThunk(
 export const addNewImage = createAsyncThunk(
     "homeimage/addnewimage", async (file, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
- 
+
         try {
             const formData = new FormData();
             formData.append('image', file, file.name);
@@ -55,6 +55,11 @@ export const addNewImage = createAsyncThunk(
 
                 }
             });
+            if (res.status !== 201) {
+                alert("There is an error, try again later ")
+
+                throw new Error("Error add image");
+            };
             const data = await res.json();
             return data;
         } catch (error) {
@@ -69,7 +74,7 @@ export const deleteImage = createAsyncThunk(
         const { rejectWithValue, } = thunkAPI;
 
         try {
-            await fetch(`http://localhost:4500/home/images/${id}`,
+            const res = await fetch(`http://localhost:4500/home/images/${id}`,
                 {
                     method: "DELETE",
                     headers: {
@@ -79,6 +84,11 @@ export const deleteImage = createAsyncThunk(
                     }
                 }
             )
+            if (res.status !== 201) {
+                alert("There is an error, try again later ")
+
+                throw new Error("Error delete image");
+            };
             return id;
         } catch (error) {
             return rejectWithValue(error.message)

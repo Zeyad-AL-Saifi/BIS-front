@@ -1,14 +1,15 @@
 import React from "react";
+import './NewsCard.css'
 const NewsCard = ({ title, content }) => {
   return (
     <>
       <div className="col ">
         <div className="card custom-card">
           <div className="card-header">
-            <h1>{title}</h1>
+            <h5>{title}</h5>
           </div>
           <div className="card-body">
-            <h4 className="content-news">{content}</h4>
+            <p className="content-news">{content}</p>
           </div>
         </div>
       </div>

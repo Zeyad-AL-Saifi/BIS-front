@@ -96,6 +96,8 @@ const authSlice = createSlice({
             }
             if (state.accessToken && state.userInfo.is_admin) {
                 state.isAdmin = true
+                localStorage.setItem('isAdmin', state.isAdmin);
+
             }
         })
         builder.addCase(loginTeacher.rejected, (state, action) => {

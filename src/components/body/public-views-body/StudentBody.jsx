@@ -23,7 +23,11 @@ const StudentBody = ({ userInfo }) => {
     <Check loading={loading} error={error}>
       <div className="col">
         <ProfileInfo userInfo={userInfo} />
-        <NotesCome filteredData={filteredData} userInfo={userInfo} />
+        <NotesCome
+          filteredData={filteredData}
+          userInfo={userInfo}
+          isStd={true}
+        />
         <FormSendNotes userInfo={userInfo} isStudent={true} />
       </div>
     </Check>

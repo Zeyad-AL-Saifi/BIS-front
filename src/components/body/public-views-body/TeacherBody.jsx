@@ -21,7 +21,7 @@ const TeacherBody = ({ userInfo }) => {
     <Check loading={loading} error={error}>
       <div className="col">
         <ProfileInfo userInfo={userInfo} />
-        <NotesCome filteredData={filteredData} userInfo={userInfo} />
+        <NotesCome filteredData={filteredData} userInfo={userInfo} isStd={false}/>
         <FormSendNotes userInfo={userInfo} isStudent={false} />
       </div>
     </Check>

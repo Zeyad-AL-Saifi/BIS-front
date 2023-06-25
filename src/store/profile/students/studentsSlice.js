@@ -49,6 +49,11 @@ export const registrationStudents = createAsyncThunk(
                 }
 
             });
+            if (res.status !== 201) {
+                alert("There is an error, try again later ")
+
+                throw new Error("Error add student");
+            };
             const data = await res.json();
             return data;
         } catch (error) {
@@ -98,7 +103,11 @@ export const updateStudents = createAsyncThunk(
                 }
 
             });
+            if (res.status !== 201) {
+                alert("There is an error, try again later ")
 
+                throw new Error("Error update student");
+            };
             const data = await res.json();
             return data;
 
@@ -115,7 +124,7 @@ export const deleteStudents = createAsyncThunk(
         const { rejectWithValue } = thunkAPI;
 
         try {
-            await fetch(`http://localhost:4500/students/${id}`,
+            const res = await fetch(`http://localhost:4500/students/${id}`,
                 {
                     method: "DELETE",
                     headers: {
@@ -125,6 +134,11 @@ export const deleteStudents = createAsyncThunk(
                     }
                 }
             )
+            if (res.status !== 201) {
+                alert("There is an error, try again later ")
+
+                throw new Error("Error delete student");
+            };
             return id;
         } catch (error) {
             return rejectWithValue(error.message)

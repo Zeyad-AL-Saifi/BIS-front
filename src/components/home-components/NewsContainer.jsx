@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllNews } from "../../store/Home/news/newsSlice";
 
 import "../../utils/css/NewsContainer.css";
-import NewsCard from "../public-components/NewsCard";
+import NewsCard from "../public-components/NewsCard/NewsCard";
 import Check from "../../utils/guard/load/Check";
 
 const NewsContainer = (props) => {
@@ -22,7 +22,6 @@ const NewsContainer = (props) => {
   });
   return (
     <Check loading={loading} error={error}>
-      {" "}
       <div className="container">
         <h3>{props.title}</h3>
         <p>{props.content}</p>

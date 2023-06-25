@@ -56,7 +56,11 @@ export const updateNews = createAsyncThunk(
                 }
 
             });
+            if (res.status !== 201) {
+                alert("There is an error, try again later ")
 
+                throw new Error("Error updating news");
+            };
             const data = await res.json();
             return data;
 
@@ -85,6 +89,11 @@ export const addNews = createAsyncThunk(
 
                 }
             });
+            if (res.status !== 201) {
+                alert("There is an error, try again later ")
+
+                throw new Error("Error add news");
+            };
             const data = await res.json();
             return data;
         } catch (error) {
@@ -99,7 +108,7 @@ export const deleteNews = createAsyncThunk(
         const { rejectWithValue } = thunkAPI;
 
         try {
-            await fetch(`http://localhost:4500/home/news/${id}`,
+            const res = await fetch(`http://localhost:4500/home/news/${id}`,
                 {
                     method: "DELETE",
                     headers: {
@@ -109,6 +118,11 @@ export const deleteNews = createAsyncThunk(
                     }
                 }
             )
+            if (res.status !== 201) {
+                alert("There is an error, try again later ")
+
+                throw new Error("Error delete news");
+            };
             return id;
         } catch (error) {
             return rejectWithValue(error.message)

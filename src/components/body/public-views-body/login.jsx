@@ -5,7 +5,7 @@ const Login = ({ handleSubmit, color }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    localStorage.clear()
+    localStorage.clear();
     handleSubmit({ email, password });
   };
   return (
@@ -15,7 +15,7 @@ const Login = ({ handleSubmit, color }) => {
           <div className="col-12 col-md-8 col-lg-6 col-xl-5">
             <div
               className="card  text-white"
-              style={{ borderRadius: "1rem" , backgroundColor: color }}
+              style={{ borderRadius: "1rem", backgroundColor: color }}
             >
               <div className="card-body p-5 text-center">
                 <div className="mb-md-5 mt-md-4 pb-5">
@@ -55,8 +55,8 @@ const Login = ({ handleSubmit, color }) => {
                     </div>
 
                     <p className="small mb-5 pb-lg-2">
-                      <p className="text-white-50" href="#!">
-                        Forgot password?
+                      <p className="text-white" href="#!">
+                        Forgot password? <a href="#" className="text-white">reset your password</a>
                       </p>
                     </p>
 

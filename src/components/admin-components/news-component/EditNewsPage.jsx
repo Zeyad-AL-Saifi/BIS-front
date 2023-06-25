@@ -29,7 +29,9 @@ const EditNewsPage = ({
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateNews({ id: item.news_id, title, content })).unwrap();
+    dispatch(updateNews({ id: item.news_id, title, content })).then(() => {
+      handleCloseModal();
+    });
   };
 
   return (

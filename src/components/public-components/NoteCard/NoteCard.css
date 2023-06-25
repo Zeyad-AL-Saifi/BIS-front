@@ -1,0 +1,41 @@
+.notes {
+    border: solid black 1px;
+    height: 40%;
+    margin-top: 20px;
+    padding: 20px;
+
+}
+
+.custom-note-card {
+    height: 350px;
+    margin-top: 20px;
+    width: 30%;
+    min-width: 400px;
+    max-width: 350px;
+    margin-bottom: 20px;
+    display: block;
+    overflow-y: scroll;
+    margin-left: 40px;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.add-new-note {
+    border: solid black 1px;
+    height: 40%;
+    padding: 20px;
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 2px;
+    right: 15px;
+    border: 0px solid white;
+    background: transparent;
+    font-size: 1.5rem;
+    color: #ffffff;
+    cursor: pointer ;
+
+}

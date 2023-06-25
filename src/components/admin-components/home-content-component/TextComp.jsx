@@ -25,11 +25,13 @@ const TextComp = () => {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateMainText({ main_text: text }))
-      .unwrap()
-      .then(() => {
-        dispatch(getMainText());
-      });
+    if (text === "" || text === undefined) {
+      alert("Be sure of the information you entered ");
+    }
+    dispatch(updateMainText({ main_text: text })).then(() => {
+      dispatch(getMainText());
+      setText("");
+    });
   };
   return (
     <div>

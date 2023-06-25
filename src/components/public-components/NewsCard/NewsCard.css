@@ -1,0 +1,28 @@
+.custom-card {
+    background-color: #c7afaf;
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    background-color: #3d3d3d;
+    padding: auto;
+    border-bottom: 1px solid #c7c7c7;
+  }
+  
+  h5 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .card-body {
+    padding: 20px 0;
+  }
+  
+  .content-news {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  

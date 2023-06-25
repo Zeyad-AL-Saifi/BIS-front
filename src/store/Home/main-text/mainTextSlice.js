@@ -31,13 +31,18 @@ export const updateMainText = createAsyncThunk(
                 body: JSON.stringify(item),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",
-                    "token": token 
+                    "token": token
 
                 }
 
             });
+            if (res.status !== 201) {
+                alert("There is an error, try again later ")
 
+                throw new Error("Error updating maintext");
+            };
             const data = await res.json();
+
             return data;
 
         } catch (error) {
@@ -82,6 +87,7 @@ const mainTextSlice = createSlice({
         builder.addCase(updateMainText.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
+
         })
 
     }

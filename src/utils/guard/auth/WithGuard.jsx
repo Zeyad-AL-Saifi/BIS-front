@@ -38,8 +38,11 @@ const withGuardStudent = (Component) => {
 
 const withGuardAdmin = (Component) => {
   const Guard = (props) => {
+    const isAdminStorge = localStorage.getItem("isAdmin");
+    const islogin = localStorage.getItem("isTeacher");
+
     const { isTeacher, isAdmin } = useSelector((state) => state.auth);
-    return isTeacher && isAdmin ? (
+    return (isTeacher || islogin) && (isAdmin || isAdminStorge) ? (
       <Component {...props} />
     ) : (
       <>

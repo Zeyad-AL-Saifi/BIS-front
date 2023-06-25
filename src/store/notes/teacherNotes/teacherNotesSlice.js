@@ -38,6 +38,11 @@ export const addTeacherNote = createAsyncThunk(
           "Content-type": "application/json; charset=UTF-8",
         },
       });
+      if (res.status !== 201) {
+        alert("There is an error, try again later ")
+
+        throw new Error("Error add note");
+      };
       const data = await res.json();
       return data;
     } catch (error) {
@@ -81,6 +86,11 @@ export const updateTeacherNote = createAsyncThunk(
           },
         }
       );
+      if (res.status !== 201) {
+        alert("There is an error, try again later ")
+
+        throw new Error("Error update note");
+      };
       const data = await res.json();
       return data;
     } catch (error) {
@@ -96,10 +106,15 @@ export const deleteTeacherNote = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
 
     try {
-      await fetch(`http://localhost:4500/teachernote/${id}`, {
+      const res = await fetch(`http://localhost:4500/teachernote/${id}`, {
         method: "DELETE",
-        headers: {},
+     
       });
+      if (res.status !== 201) {
+        alert("There is an error, try again later ")
+
+        throw new Error("Error delete note");
+      };
       return id;
     } catch (error) {
       return rejectWithValue(error.message);

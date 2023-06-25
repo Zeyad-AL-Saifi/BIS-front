@@ -41,10 +41,15 @@ export const registrationTeacher = createAsyncThunk(
                 },),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",
-                    "token": token 
+                    "token": token
 
                 }
             });
+            if (res.status !== 201) {
+                alert("There is an error, try again later ")
+
+                throw new Error("Error add teacher");
+            };
             const data = await res.json();
             return data;
         } catch (error) {
@@ -88,12 +93,16 @@ export const updateteachers = createAsyncThunk(
                 }),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8",
-                    "token": token 
+                    "token": token
 
                 }
 
             });
+            if (res.status !== 201) {
+                alert("There is an error, try again later ")
 
+                throw new Error("Error update teacher");
+            };
             const data = await res.json();
             return data;
 
@@ -110,16 +119,21 @@ export const deleteteachers = createAsyncThunk(
         const { rejectWithValue } = thunkAPI;
 
         try {
-            await fetch(`http://localhost:4500/teachers/${id}`,
+            const res = await fetch(`http://localhost:4500/teachers/${id}`,
                 {
                     method: "DELETE",
                     headers: {
-                        "token": token 
+                        "token": token
 
 
                     }
                 }
             )
+            if (res.status !== 201) {
+                alert("There is an error, try again later ")
+
+                throw new Error("Error delete teacher");
+            };
             return id;
         } catch (error) {
             return rejectWithValue(error.message)
