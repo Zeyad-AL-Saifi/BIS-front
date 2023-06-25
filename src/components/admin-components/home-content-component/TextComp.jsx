@@ -29,7 +29,11 @@ const TextComp = () => {
   const handelSubmit = (e) => {
     e.preventDefault();
     if (text === "" || text === undefined) {
-      alert("Be sure of the information you entered ");
+      return (
+        <div class="alert alert-danger" role="alert">
+          This is a danger alert—check it out!
+        </div>
+      );
     }
     dispatch(updateMainText({ main_text: text })).then(() => {
       dispatch(getMainText());

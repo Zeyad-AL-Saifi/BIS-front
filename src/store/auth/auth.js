@@ -1,6 +1,7 @@
 
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { Base_URL } from "../../Api/apiConfig";
 const initialState = {
     isStudent: false,
     isAdmin: false,
@@ -17,7 +18,7 @@ export const loginTeacher = createAsyncThunk(
         const { rejectWithValue } = thunkAPI;
 
         try {
-            const res = await fetch("http://localhost:4500/login/teacher", {
+            const res = await fetch(`${Base_URL}/login/teacher`, {
                 method: "POST",
                 body: JSON.stringify({ email: item.email, password: item.password }),
                 headers: {
@@ -31,12 +32,6 @@ export const loginTeacher = createAsyncThunk(
             } else {
             }
             return data;
-
-
-
-
-
-
         } catch (error) {
             return rejectWithValue(error.message)
         }
@@ -47,7 +42,7 @@ export const loginStudent = createAsyncThunk(
         const { rejectWithValue } = thunkAPI;
 
         try {
-            const res = await fetch("http://localhost:4500/login/student", {
+            const res = await fetch(`${Base_URL}/login/student`, {
                 method: "POST",
                 body: JSON.stringify({ email: item.email, password: item.password }),
                 headers: {

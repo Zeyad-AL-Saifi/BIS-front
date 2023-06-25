@@ -1,6 +1,7 @@
 
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { Base_URL } from "../../Api/apiConfig";
 const initialState = {
     loading: false,
     error: null,
@@ -14,7 +15,7 @@ export const forgotThePassword = createAsyncThunk(
         const { rejectWithValue } = thunkAPI;
 
         try {
-            const res = await fetch("http://localhost:4500/forgot-password", {
+            const res = await fetch(`${Base_URL}/forgot-password`, {
                 method: "POST",
                 body: JSON.stringify({ email }),
                 headers: {

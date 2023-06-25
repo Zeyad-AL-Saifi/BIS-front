@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { Base_URL } from "../../../Api/apiConfig";
 
 
 
@@ -11,7 +12,7 @@ export const getMainText = createAsyncThunk(
     async (_, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
         try {
-            const res = await axios.get(`http://localhost:4500/home/text`);
+            const res = await axios.get(`${Base_URL}/home/text`);
             return res.data;
 
         } catch (error) {
@@ -26,7 +27,7 @@ export const updateMainText = createAsyncThunk(
     async (item, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
         try {
-            const res = await fetch(`http://localhost:4500/home/text`, {
+            const res = await fetch(`${Base_URL}/home/text`, {
                 method: "PUT",
                 body: JSON.stringify(item),
                 headers: {
@@ -37,7 +38,8 @@ export const updateMainText = createAsyncThunk(
 
             });
             if (res.status !== 201) {
-                alert("There is an error, try again later ")
+
+                // alert("There is an error, try again later ")
 
                 throw new Error("Error updating maintext");
             };

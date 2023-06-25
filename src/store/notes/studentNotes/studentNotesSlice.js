@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { Base_URL } from "../../../Api/apiConfig";
 
 const initialState = { records: [], loading: false, error: null, record: null };
 const token = localStorage.getItem('token');
@@ -9,7 +10,7 @@ export const getAllStudentNote = createAsyncThunk(
   async (_, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await axios.get(`http://localhost:4500/studentnote`);
+      const res = await axios.get(`${Base_URL}/studentnote`);
       return res.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -24,7 +25,7 @@ export const addStudentNote = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
 
     try {
-      const res = await fetch("http://localhost:4500/studentnote", {
+      const res = await fetch(`${Base_URL}/studentnote`, {
         method: "POST",
         body: JSON.stringify({
           student_id_from: item.student_id_from,
@@ -57,7 +58,7 @@ export const getStudentNoteByID = createAsyncThunk(
   async (name, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await fetch(`http://localhost:4500/studentnote/${name}`, {
+      const res = await fetch(`${Base_URL}/studentnote/${name}`, {
         method: "Get",
       });
       const data = await res.json();
@@ -75,7 +76,7 @@ export const updateStudentNote = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
     try {
       const res = await fetch(
-        `http://localhost:4500/studentnote/${item.note_id}`,
+        `${Base_URL}/studentnote/${item.note_id}`,
         {
           method: "PUT",
           headers: {
@@ -105,7 +106,7 @@ export const deleteStudentNote = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
 
     try {
-      const res = await fetch(`http://localhost:4500/studentnote/${id}`, {
+      const res = await fetch(`${Base_URL}/studentnote/${id}`, {
         method: "DELETE",
       });
       if (res.status !== 201) {

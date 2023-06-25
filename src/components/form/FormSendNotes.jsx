@@ -6,6 +6,7 @@ import { addTeacherNote } from "../../store/notes/teacherNotes/teacherNotesSlice
 import { addStudentNote } from "../../store/notes/studentNotes/studentNotesSlice";
 import CustomDropTeacher from "../public-components/CustomDropdown/CustomDropTeacher";
 import CustomDropStudent from "../public-components/CustomDropdown/CustomDropStudent";
+import CustomAlter from "../../hooks/Alter";
 const FormSendNotes = ({ userInfo, isStudent }) => {
   const [forHow, setForHow] = useState("");
   const [note, setNote] = useState("");
@@ -34,7 +35,8 @@ const FormSendNotes = ({ userInfo, isStudent }) => {
               time: date,
             })
           ).then(() => {
-            alert("Send Note Successfully 👌😁");
+            <CustomAlter error={"Send Note Successfully"} />;
+            // alert("Send Note Successfully 👌😁");
           })
         : dispatch(
             addTeacherNote({
@@ -46,7 +48,8 @@ const FormSendNotes = ({ userInfo, isStudent }) => {
               time: date,
             })
           ).then(() => {
-            alert("Send Note Successfully 👌😁");
+            <CustomAlter error={"Send Note Successfully"} />;
+            // alert("Send Note Successfully 👌😁");
           });
     }
   };

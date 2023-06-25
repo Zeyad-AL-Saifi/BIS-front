@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { Base_URL } from "../../../Api/apiConfig";
 
 const initialState = { records: [], loading: false, error: null, record: null };
 const token = localStorage.getItem('token');
@@ -9,7 +10,7 @@ export const getAllTeacherNote = createAsyncThunk(
   async (_, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await axios.get(`http://localhost:4500/teachernote`);
+      const res = await axios.get(`${Base_URL}/teachernote`);
       return res.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -24,7 +25,7 @@ export const addTeacherNote = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
 
     try {
-      const res = await fetch("http://localhost:4500/teachernote", {
+      const res = await fetch(`${Base_URL}/teachernote`, {
         method: "POST",
         body: JSON.stringify({
           teacher_id_from: item.teacher_id_from,
@@ -57,7 +58,7 @@ export const getTeacherNoteByID = createAsyncThunk(
   async (name, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await fetch(`http://localhost:4500/teachernote/${name}`, {
+      const res = await fetch(`${Base_URL}/teachernote/${name}`, {
         method: "Get",
       });
       const data = await res.json();
@@ -76,7 +77,7 @@ export const updateTeacherNote = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
     try {
       const res = await fetch(
-        `http://localhost:4500/teachernote/${item.note_id}`,
+        `${Base_URL}/teachernote/${item.note_id}`,
         {
           method: "PUT",
           headers: {
@@ -106,7 +107,7 @@ export const deleteTeacherNote = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
 
     try {
-      const res = await fetch(`http://localhost:4500/teachernote/${id}`, {
+      const res = await fetch(`${Base_URL}/teachernote/${id}`, {
         method: "DELETE",
      
       });

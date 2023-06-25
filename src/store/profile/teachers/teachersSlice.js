@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { Base_URL } from "../../../Api/apiConfig";
 
 
 
@@ -11,7 +12,7 @@ export const getAllteachers = createAsyncThunk(
     async (_, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
         try {
-            const res = await axios.get(`http://localhost:4500/teachers`);
+            const res = await axios.get(`${Base_URL}/teachers`);
             return res.data;
 
         } catch (error) {
@@ -26,7 +27,7 @@ export const registrationTeacher = createAsyncThunk(
         const { rejectWithValue, } = thunkAPI;
         const { full_name, address, mobile_number, gender, major, password, email, is_admin, } = item;
         try {
-            const res = await fetch("http://localhost:4500/registration/teacher", {
+            const res = await fetch(`${Base_URL}/registration/teacher`, {
                 method: "POST",
                 body: JSON.stringify({
                     "teacher_image": "dfsdfs",
@@ -59,7 +60,7 @@ export const getteachersByID = createAsyncThunk(
     "teachers/getteachersbyid", async (id, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
         try {
-            const res = await fetch(`http://localhost:4500/teachers/${id}`, {
+            const res = await fetch(`${Base_URL}/teachers/${id}`, {
                 method: "Get",
             });
             const data = await res.json();
@@ -76,7 +77,7 @@ export const updateteachers = createAsyncThunk(
     async (item, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
         try {
-            const res = await fetch(`http://localhost:4500/teachers/${item.teacher_id}`, {
+            const res = await fetch(`${Base_URL}/teachers/${item.teacher_id}`, {
                 method: "PUT",
                 body: JSON.stringify({
                     full_name: item.full_name,
@@ -111,7 +112,7 @@ export const deleteteachers = createAsyncThunk(
         const { rejectWithValue } = thunkAPI;
 
         try {
-            await fetch(`http://localhost:4500/teachers/${id}`,
+            await fetch(`${Base_URL}/teachers/${id}`,
                 {
                     method: "DELETE",
                     headers: {

@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { Base_URL } from "../../../Api/apiConfig";
 
 
 
@@ -12,7 +13,7 @@ export const getAllNews = createAsyncThunk(
     async (_, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
         try {
-            const res = await axios.get(`http://localhost:4500/home/news`);
+            const res = await axios.get(`${Base_URL}/home/news`);
             return res.data;
 
         } catch (error) {
@@ -26,7 +27,7 @@ export const getNewsByID = createAsyncThunk(
     "news/getnewsbyid", async (id, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
         try {
-            const res = await fetch(`http://localhost:4500/home/news/${id}`, {
+            const res = await fetch(`${Base_URL}/home/news/${id}`, {
                 method: "Get",
             });
             const data = await res.json();
@@ -43,7 +44,7 @@ export const updateNews = createAsyncThunk(
     async (item, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
         try {
-            const res = await fetch(`http://localhost:4500/home/news/${item.id}`, {
+            const res = await fetch(`${Base_URL}/home/news/${item.id}`, {
                 method: "PUT",
                 body: JSON.stringify({
                     title: item.title,
@@ -76,7 +77,7 @@ export const addNews = createAsyncThunk(
         const { rejectWithValue } = thunkAPI;
 
         try {
-            const res = await fetch("http://localhost:4500/home/news", {
+            const res = await fetch(`${Base_URL}/home/news`, {
                 method: "POST",
                 body: JSON.stringify({
                     title: item.titleData,
@@ -108,7 +109,7 @@ export const deleteNews = createAsyncThunk(
         const { rejectWithValue } = thunkAPI;
 
         try {
-            const res = await fetch(`http://localhost:4500/home/news/${id}`,
+            const res = await fetch(`${Base_URL}/home/news/${id}`,
                 {
                     method: "DELETE",
                     headers: {

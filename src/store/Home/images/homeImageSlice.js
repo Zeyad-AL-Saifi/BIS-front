@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { Base_URL } from "../../../Api/apiConfig";
 
 
 
@@ -10,7 +11,7 @@ export const getAllHomeImage = createAsyncThunk(
     async (_, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
         try {
-            const res = await fetch(`http://localhost:4500/home/images`);
+            const res = await fetch(`${Base_URL}/home/images`);
             const data = await res.json();
             return data;
 
@@ -25,7 +26,7 @@ export const getHomeImageById = createAsyncThunk(
     "homeimage/gethomeimagebyid", async (id, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
         try {
-            const res = await fetch(`http://localhost:4500/home/images/${id}`, {
+            const res = await fetch(`${Base_URL}/home/images/${id}`, {
                 method: "Get",
             });
             const data = await res.json();
@@ -46,7 +47,7 @@ export const addNewImage = createAsyncThunk(
         try {
             const formData = new FormData();
             formData.append('image', file, file.name);
-            const res = await fetch("http://localhost:4500/home/images", {
+            const res = await fetch(`${Base_URL}/home/images`, {
                 method: "POST",
                 body: formData,
                 headers: {
@@ -74,7 +75,7 @@ export const deleteImage = createAsyncThunk(
         const { rejectWithValue, } = thunkAPI;
 
         try {
-            const res = await fetch(`http://localhost:4500/home/images/${id}`,
+            const res = await fetch(`${Base_URL}/home/images/${id}`,
                 {
                     method: "DELETE",
                     headers: {
