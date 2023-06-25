@@ -9,10 +9,13 @@ import {
 
 const TextComp = () => {
   const { record, loading, error } = useSelector((state) => state.maintext);
-
-  const [text, setText] = useState();
-
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMainText());
+  }, [dispatch]);
+  const [text, setText] = useState(record?.main_text);
+
   useEffect(() => {
     if (record) {
       setText(record?.main_text);

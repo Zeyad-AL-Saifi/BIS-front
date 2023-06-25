@@ -1,5 +1,5 @@
 import { memo } from "react";
-
+import logo from "../../../assets/images/admin-icon.jpg";
 const ProfileCard = ({ handleShowModal, ele, handelDelete, index }) => {
   return (
     <div
@@ -13,26 +13,35 @@ const ProfileCard = ({ handleShowModal, ele, handelDelete, index }) => {
         className="card-img-top"
         alt="Your"
       />
-      <div
-        className={`card-body ${
-          ele.is_admin ? "bg-primary text-white" : "bg-light"
-        }`}
-      >
+      <div>
         <hr />
-        <h5 className="card-title">{ele.full_name.toUpperCase().slice(0,25)} </h5>
+        <h5 className="card-title p-y-2">
+          {ele.full_name.toUpperCase().slice(0, 25)}
+          <span>
+            {ele.is_admin ? (
+              <img
+                alt=""
+                src={logo}
+                style={{ position: "absolute", top: 0, right: 0  ,width:'50px' ,margin:'10px'}}
+              />
+            ) : (
+              ""
+            )}
+          </span>
+        </h5>
         <hr />
-        <h6 className="card-title">
+        <h6 className="card-title p-y-2">
           {ele.class_number
             ? `Class Number : ${ele.class_number}`
             : `Majoring :${ele.major}`}
         </h6>
-        
-        <h6 className="card-title">
+
+        <h6 className="card-title p-y-2">
           {ele.date_of_birth ? `Date of birth : ${ele.date_of_birth}` : ``}
         </h6>
-        <h6 className="card-title">Address : {ele.address}</h6>
-        <h6 className="card-title">Mobile number: {ele.mobile_number}</h6>
-        <h6 className="card-title">Email : {ele.email}</h6>
+        <h6 className="card-title p-y-2">Address : {ele.address}</h6>
+        <h6 className="card-title p-y-2">Mobile number: {ele.mobile_number}</h6>
+        <h6 className="card-title p-y-2">Email : {ele.email}</h6>
         <button className="btn btn-danger w-50 " onClick={() => handelDelete()}>
           Delete
         </button>

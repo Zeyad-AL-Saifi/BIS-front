@@ -26,6 +26,9 @@ const Login = ({ handleSubmit, color }) => {
                   </p>
                   <form onSubmit={onSubmit}>
                     <div className="form-outline form-white mb-4">
+                      <label className="form-label" for="typeEmailX">
+                        Email
+                      </label>
                       <input
                         type="email"
                         id="typeEmailX"
@@ -35,12 +38,12 @@ const Login = ({ handleSubmit, color }) => {
                           setEmail(event.target.value);
                         }}
                       />
-                      <label className="form-label" for="typeEmailX">
-                        Email
-                      </label>
                     </div>
 
                     <div className="form-outline form-white mb-4">
+                      <label className="form-label" for="typePasswordX">
+                        Password
+                      </label>
                       <input
                         type="password"
                         id="typePasswordX"
@@ -50,14 +53,14 @@ const Login = ({ handleSubmit, color }) => {
                           setPassword(event.target.value);
                         }}
                       />
-                      <label className="form-label" for="typePasswordX">
-                        Password
-                      </label>
                     </div>
 
                     <p className="small mb-5 pb-lg-2">
                       <p className="text-white" href="#!">
-                        Forgot password? <Link to="/resetpassword" className="text-white">reset your password</Link>
+                        Forgot password?{" "}
+                        <Link to="/resetpassword" className="text-white">
+                          reset your password
+                        </Link>
                       </p>
                     </p>
 

@@ -20,7 +20,7 @@ const FormSendNotes = ({ userInfo, isStudent }) => {
     e.preventDefault();
     if (!forHow || !note) {
       alert(
-        "you cannot send not wthout select for how you want send and write youe note please"
+        "You cannot send without specifying how you want to send it and please write your note"
       );
     } else {
       isStudent
