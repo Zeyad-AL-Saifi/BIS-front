@@ -78,18 +78,18 @@ const EditStudentForm = ({ item, handleCloseModal }) => {
       </FormGroup>
 
       <FormGroup>
-        <Form.Label htmlFor="data_of_birth">Data of birth</Form.Label>
+        <Form.Label htmlFor="date_of_birth">Data of birth</Form.Label>
         <Form.Control
           type="text"
           name="major"
           className="form-control"
-          id="data_of_birth"
+          id="date_of_birth"
           onChange={formik.handleChange}
-          value={formik.values.data_of_birth}
-          isInvalid={!!formik.errors.data_of_birth}
+          value={formik.values.date_of_birth}
+          isInvalid={!!formik.errors.date_of_birth}
         />
         <Form.Control.Feedback type="invalid">
-          {formik.errors.data_of_birth}
+          {formik.errors.date_of_birth}
         </Form.Control.Feedback>
       </FormGroup>
 

@@ -7,9 +7,6 @@ const FilterForm = ({handelInput}) => {
         <div className="input-group mb-3">
           <input type="text" className="form-control" placeholder="Search By Name..."  onInput={handelInput}/>
           <div className="input-group-append">
-            <button className="btn btn-primary" type="button">
-              Filter
-            </button>
           </div>
         </div>
       </div>

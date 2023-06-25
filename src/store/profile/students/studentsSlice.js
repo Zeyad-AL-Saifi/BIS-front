@@ -27,7 +27,7 @@ export const registrationStudents = createAsyncThunk(
         const { rejectWithValue } = thunkAPI;
 
 
-        const { full_name, address, class_number, mobile_number, gender, data_of_birth, password, email, } = item;
+        const { full_name, address, class_number, mobile_number, gender, date_of_birth, password, email, } = item;
         try {
             const res = await fetch("http://localhost:4500/registration/student", {
                 method: "POST",
@@ -37,7 +37,7 @@ export const registrationStudents = createAsyncThunk(
                     address,
                     mobile_number,
                     gender,
-                    data_of_birth,
+                    date_of_birth,
                     class_number,
                     password,
                     email,
@@ -85,7 +85,7 @@ export const updateStudents = createAsyncThunk(
                 body: JSON.stringify({
                     full_name: item.full_name,
                     address: item.address,
-                    data_of_birth: item.data_of_birth,
+                    date_of_birth: item.date_of_birth,
                     mobile_number: item.mobile_number,
                     class_number: item.class_number,
                     email: item.email,
@@ -99,11 +99,7 @@ export const updateStudents = createAsyncThunk(
                 }
 
             });
-            if (res.status !== 201) {
-                alert("There is an error, try again later ")
-
-                throw new Error("Error update student");
-            };
+      
             const data = await res.json();
             return data;
 
@@ -120,7 +116,7 @@ export const deleteStudents = createAsyncThunk(
         const { rejectWithValue } = thunkAPI;
 
         try {
-            const res = await fetch(`http://localhost:4500/students/${id}`,
+             await fetch(`http://localhost:4500/students/${id}`,
                 {
                     method: "DELETE",
                     headers: {
@@ -130,11 +126,6 @@ export const deleteStudents = createAsyncThunk(
                     }
                 }
             )
-            if (res.status !== 201) {
-                alert("There is an error, try again later ")
-
-                throw new Error("Error delete student");
-            };
             return id;
         } catch (error) {
             return rejectWithValue(error.message)
