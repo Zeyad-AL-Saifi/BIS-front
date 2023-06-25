@@ -1,4 +1,21 @@
+import { useEffect } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { forgotThePassword } from "../../../store/password/passwordSlice";
+
 const ResetPassword = () => {
+  const [email, setEmail] = useState("");
+
+  const dispatch = useDispatch();
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+  };
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    dispatch(forgotThePassword(email));
+    setEmail("");
+    alert("Check your email ℹ️");
+  };
   return (
     <section className="vh-100 gradient-custom ">
       <div className="container py-5 h-100">
@@ -16,11 +33,13 @@ const ResetPassword = () => {
                   <p className="text-white-50 mb-5">
                     Enter your Email and get the link to reset your paasswrd
                   </p>
-                  <form onSubmit={{}}>
+                  <form onSubmit={handelSubmit}>
                     <div className="form-outline form-white mb-4">
                       <input
                         type="email"
                         id="typeEmailX"
+                        value={email}
+                        onChange={handleChange}
                         className="form-control form-control-lg"
                       />
                       <label className="form-label" for="typeEmailX">

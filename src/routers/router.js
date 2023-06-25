@@ -8,6 +8,7 @@ import Loading from '../utils/guard/load/loading';
 import StudentLoginView from '../views/login/StudentLoginView';
 import TeacherLoginView from '../views/login/TeacherLoginView';
 import ResetPassword from '../views/login/reset-paassword/reset-password';
+import AfterSendCode from '../views/login/reset-paassword/after-send-code';
 
 
 
@@ -75,6 +76,13 @@ const router = createBrowserRouter([
                 element: <Suspense
                     fallback={<Loading />}>
                     <ResetPassword />
+                </Suspense>,
+            },
+            {
+                path: "after-code/:email/:token",
+                element: <Suspense
+                    fallback={<Loading />}>
+                    <AfterSendCode />
                 </Suspense>,
             },
 

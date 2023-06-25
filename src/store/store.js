@@ -8,9 +8,10 @@ import students from './profile/students/studentsSlice';
 import studentnote from './notes/studentNotes/studentNotesSlice';
 import teachernote from './notes/teacherNotes/teacherNotesSlice';
 import auth from './auth/auth';
+import password from './password/passwordSlice'
 
 const store = configureStore({
-    reducer: { maintext, news, homeimage, teachers, students, studentnote, teachernote ,auth }
+    reducer: { maintext, news, homeimage, teachers, students, studentnote, teachernote, auth, password }
 })
 
 
