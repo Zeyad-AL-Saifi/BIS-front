@@ -28,12 +28,12 @@ export const registrationStudents = createAsyncThunk(
         const { rejectWithValue } = thunkAPI;
 
 
-        const { full_name, address, class_number, mobile_number, gender, date_of_birth, password, email, } = item;
+        const { full_name, address, class_number, mobile_number, gender, date_of_birth, password, email, student_image } = item;
         try {
             const res = await fetch(`${Base_URL}/registration/student`, {
                 method: "POST",
                 body: JSON.stringify({
-                    "student_image": "dfsdfs",
+                    student_image,
                     full_name,
                     address,
                     mobile_number,
@@ -50,7 +50,7 @@ export const registrationStudents = createAsyncThunk(
                 }
 
             });
-       
+
             const data = await res.json();
             return data;
         } catch (error) {
@@ -100,7 +100,7 @@ export const updateStudents = createAsyncThunk(
                 }
 
             });
-      
+
             const data = await res.json();
             return data;
 
@@ -117,7 +117,7 @@ export const deleteStudents = createAsyncThunk(
         const { rejectWithValue } = thunkAPI;
 
         try {
-             await fetch(`${Base_URL}/students/${id}`,
+            await fetch(`${Base_URL}/students/${id}`,
                 {
                     method: "DELETE",
                     headers: {

@@ -9,7 +9,6 @@ const AfterSendCode = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (values) => {
-    console.log(values.password);
     dispatch(resetPassword(values.password)).then(() => {
       navigate("/");
     });

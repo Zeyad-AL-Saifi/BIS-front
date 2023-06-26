@@ -25,12 +25,12 @@ export const getAllteachers = createAsyncThunk(
 export const registrationTeacher = createAsyncThunk(
     "teachers/registrationTeacher", async (item, thunkAPI) => {
         const { rejectWithValue, } = thunkAPI;
-        const { full_name, address, mobile_number, gender, major, password, email, is_admin, } = item;
+        const { full_name, address, mobile_number, gender, major, password, email, is_admin, teacher_image } = item;
         try {
             const res = await fetch(`${Base_URL}/registration/teacher`, {
                 method: "POST",
                 body: JSON.stringify({
-                    "teacher_image": "dfsdfs",
+                    teacher_image,
                     full_name,
                     address,
                     mobile_number,

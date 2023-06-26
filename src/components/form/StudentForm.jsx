@@ -1,14 +1,16 @@
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { Button, Form } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import FormGroup from "./FormGroup";
 import { registrationStudents } from "../../store/profile/students/studentsSlice";
 import { registerSchemaStudents } from "../../utils/validation/validationSchema";
+import { Cloud_Name, Upload_Preset } from "../../Api/cloudinaryConfig";
+import { useState } from "react";
 
 const StudentForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const [image, setimage] = useState();
+
   const formik = useFormik({
     initialValues: {
       full_name: "",
@@ -23,12 +25,12 @@ const StudentForm = () => {
     },
     validationSchema: registerSchemaStudents,
     onSubmit: (values) => {
+      values.student_image = image;
       dispatch(registrationStudents(values))
         .then((action) => {
           const message = action.payload.message;
           alert(message);
         })
-        .then(navigate("/admin"))
         .catch((error) => {
           alert(error.message);
         });
@@ -174,8 +176,30 @@ const StudentForm = () => {
       </FormGroup>
 
       <FormGroup>
-        <Form.Label htmlFor="file">Upload Image :</Form.Label>
-        <Form.Control type="file" className="form-control-file" id="file" />
+        <Button
+          id="password"
+          name="password"
+          onClick={() => {
+            // Open Cloudinary Upload Widget
+            window.cloudinary.openUploadWidget(
+              {
+                cloudName: Cloud_Name,
+                uploadPreset: Upload_Preset,
+                maxFiles: 1,
+                resourceType: "image",
+              },
+              (error, result) => {
+                if (!error && result && result.event === "success") {
+                  const imagePath = result.info.secure_url;
+                  setimage(imagePath)
+                }
+              }
+            );
+          }}
+          value={formik.values.password}
+        >
+          Upload image
+        </Button>
       </FormGroup>
       <Button className="w-100" variant="primary" type="submit">
         Save Changes

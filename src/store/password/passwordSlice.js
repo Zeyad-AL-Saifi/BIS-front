@@ -38,7 +38,6 @@ export const resetPassword = createAsyncThunk(
 
     "password/resetPassword", async (password, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
-        console.log(`${Base_URL}${window.location.pathname}`);
         try {
             const res = await fetch(`${Base_URL}${window.location.pathname}`, {
                 method: "put",
