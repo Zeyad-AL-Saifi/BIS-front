@@ -25,7 +25,32 @@ export const forgotThePassword = createAsyncThunk(
             const data = await res.json();
 
             if (res.status !== 200) {
-                throw new Error(data.error)
+                return res.send({ message: "error" })
+            } else {
+            }
+            return data;
+        } catch (error) {
+            return rejectWithValue(error.message)
+        }
+    })
+
+export const resetPassword = createAsyncThunk(
+
+    "password/resetPassword", async (password, thunkAPI) => {
+        const { rejectWithValue } = thunkAPI;
+        console.log(`${Base_URL}${window.location.pathname}`);
+        try {
+            const res = await fetch(`${Base_URL}${window.location.pathname}`, {
+                method: "put",
+                body: JSON.stringify( {password} ),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                }
+            });
+            const data = await res.json();
+
+            if (res.status !== 200) {
+                throw new Error("Error add note");
             } else {
             }
             return data;
@@ -36,7 +61,7 @@ export const forgotThePassword = createAsyncThunk(
 
 
 
-const authSlice = createSlice({
+const passwordSlice = createSlice({
     name: "password",
     initialState,
     reducers: {},
@@ -57,8 +82,22 @@ const authSlice = createSlice({
             state.error = action.payload;
             alert('invalid email address');
         })
-        //login student
 
+
+        builder.addCase(resetPassword.pending, (state, action) => {
+            state.loading = true;
+            //for if the users retry after the error 
+            state.error = null;
+        })
+        builder.addCase(resetPassword.fulfilled, (state, action) => {
+
+            state.record = action.payload;
+            state.loading = false;
+        })
+        builder.addCase(resetPassword.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.payload;
+        })
 
 
 
@@ -66,4 +105,4 @@ const authSlice = createSlice({
 });
 
 
-export default authSlice.reducer;
+export default passwordSlice.reducer;
