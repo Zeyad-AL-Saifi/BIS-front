@@ -60,4 +60,14 @@ const validationSchema = yup.object().shape({
   forHow: yup.string().required("for How is required"),
 });
 
-export { loginSchema, registerSchemaStudents, registerSchemaTeacher, updateTeacherSchema, updateStudentsSchema ,validationSchema};
+
+const validationSchemaPasswordReset = yup.object().shape({
+  password: yup.string()
+    .required("Password is required")
+    .min(8, "Password must be at least 8 characters long"),
+  passwordConf: yup.string()
+    .oneOf([yup.ref("password"), null], "Passwords must match")
+    .required("Confirm Password is required"),
+});
+
+export { loginSchema, registerSchemaStudents, registerSchemaTeacher, updateTeacherSchema, updateStudentsSchema ,validationSchema,validationSchemaPasswordReset};
