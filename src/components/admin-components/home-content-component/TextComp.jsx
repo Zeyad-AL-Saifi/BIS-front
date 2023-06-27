@@ -28,6 +28,7 @@ const TextComp = () => {
 
   const handelSubmit = (e) => {
     e.preventDefault();
+    //TODO:fix this
     if (text === "" || text === undefined) {
       return (
         <div class="alert alert-danger" role="alert">

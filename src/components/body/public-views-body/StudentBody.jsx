@@ -4,7 +4,10 @@ import NotesCome from "../../profile-components/NotesCome";
 import FormSendNotes from "../../form/FormSendNotes";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getAllTeacherNote } from "../../../store/notes/teacherNotes/teacherNotesSlice.js";
+import {
+  deleteTeacherNote,
+  getAllTeacherNote,
+} from "../../../store/notes/teacherNotes/teacherNotesSlice.js";
 import Check from "../../../utils/guard/load/Check";
 
 const StudentBody = ({ userInfo }) => {
@@ -14,6 +17,12 @@ const StudentBody = ({ userInfo }) => {
   useEffect(() => {
     dispatch(getAllTeacherNote());
   }, [dispatch]);
+
+  const handleDelete = (id) => {
+    dispatch(deleteTeacherNote(id)).then(() => {
+      dispatch(getAllTeacherNote());
+    });
+  };
 
   const filteredData = records.filter(
     (ele) =>
@@ -26,7 +35,7 @@ const StudentBody = ({ userInfo }) => {
         <NotesCome
           filteredData={filteredData}
           userInfo={userInfo}
-          isStd={true}
+          handleDelete={handleDelete}
         />
         <FormSendNotes userInfo={userInfo} isStudent={true} />
       </div>

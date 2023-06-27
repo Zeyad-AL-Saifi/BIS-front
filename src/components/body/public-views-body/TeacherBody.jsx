@@ -3,15 +3,24 @@ import ProfileInfo from "../../profile-components/ProfileInfo";
 import NotesCome from "../../profile-components/NotesCome";
 import FormSendNotes from "../../form/FormSendNotes";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllStudentNote } from "../../../store/notes/studentNotes/studentNotesSlice";
+import {
+  deleteStudentNote,
+  getAllStudentNote,
+} from "../../../store/notes/studentNotes/studentNotesSlice";
 import Check from "../../../utils/guard/load/Check";
 const TeacherBody = ({ userInfo }) => {
   const dispatch = useDispatch();
   const { records, loading, error } = useSelector((state) => state.studentnote);
-
   useEffect(() => {
     dispatch(getAllStudentNote());
   }, [dispatch]);
+  const handleDelete = (id) => {
+    dispatch(
+      deleteStudentNote(id).then(() => {
+        dispatch(getAllStudentNote());
+      })
+    );
+  };
 
   const filteredData = records.filter(
     (ele) =>
@@ -21,7 +30,11 @@ const TeacherBody = ({ userInfo }) => {
     <Check loading={loading} error={error}>
       <div className="col">
         <ProfileInfo userInfo={userInfo} />
-        <NotesCome filteredData={filteredData} userInfo={userInfo} isStd={false}/>
+        <NotesCome
+          filteredData={filteredData}
+          userInfo={userInfo}
+          handleDelete={handleDelete}
+        />
         <FormSendNotes userInfo={userInfo} isStudent={false} />
       </div>
     </Check>

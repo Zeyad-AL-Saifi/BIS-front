@@ -61,6 +61,11 @@ const validationSchema = yup.object().shape({
 });
 
 
+const validationSchemaLogin = yup.object().shape({
+  email: yup.string().email().trim().required("email is required"),
+  password: yup.string().trim().min(8).required("password is required"),
+});
+
 const validationSchemaPasswordReset = yup.object().shape({
   password: yup.string()
     .required("Password is required")
@@ -70,4 +75,4 @@ const validationSchemaPasswordReset = yup.object().shape({
     .required("Confirm Password is required"),
 });
 
-export { loginSchema, registerSchemaStudents, registerSchemaTeacher, updateTeacherSchema, updateStudentsSchema ,validationSchema,validationSchemaPasswordReset};
+export { loginSchema, validationSchemaLogin, registerSchemaStudents, registerSchemaTeacher, updateTeacherSchema, updateStudentsSchema, validationSchema, validationSchemaPasswordReset };

@@ -12,7 +12,7 @@ const CustomDropTeacher = ({handleSelect}) => {
         useEffect(() => {
             dispatch(getAllteachers());
         }, [dispatch]);
-        return <CustomDropdown records={records} handleSelect={handleSelect} />;
+    return <CustomDropdown records={records} handleSelect={handleSelect}  />;
     };
 
 

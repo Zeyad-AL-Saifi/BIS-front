@@ -2,13 +2,10 @@
 import { createBrowserRouter } from 'react-router-dom';
 import React, { Suspense } from 'react';
 import Error from '../utils/guard/load/Error'
-
 import App from '../App';
 import Loading from '../utils/guard/load/loading';
-import StudentLoginView from '../views/login/StudentLoginView';
-import TeacherLoginView from '../views/login/TeacherLoginView';
-import ResetPassword from '../views/login/reset-paassword/reset-password';
-import AfterSendCode from '../views/login/reset-paassword/after-send-code';
+
+
 
 
 
@@ -22,7 +19,12 @@ const StudentNotesManagement = React.lazy(() => import("../views/admin-views/man
 const TeacherManagement = React.lazy(() => import("../views/admin-views/manager/TeacherManagement"));
 const TeacherNotesManagement = React.lazy(() => import("../views/admin-views/manager/TeacherNotesManagement"));
 const HomeView = React.lazy(() => import("../views/public-vews/HomeView"));
+const StudentLoginView = React.lazy(() => import("../views/login/StudentLoginView"));
+const TeacherLoginView = React.lazy(() => import("../views/login/TeacherLoginView"));
+const ResetPassword = React.lazy(() => import("../views/login/reset-paassword/reset-password"));
+const AfterSendCode = React.lazy(() => import("../views/login/reset-paassword/after-send-code"));
 const StudentView = React.lazy(() => import("../views/public-vews/StudentView"));
+
 
 
 

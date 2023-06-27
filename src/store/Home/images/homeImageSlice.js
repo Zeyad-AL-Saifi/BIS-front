@@ -57,7 +57,6 @@ export const addNewImage = createAsyncThunk(
                 }
             });
             if (res.status !== 201) {
-                alert("There is an error, try again later ")
 
                 throw new Error("Error add image");
             };
@@ -86,7 +85,6 @@ export const deleteImage = createAsyncThunk(
                 }
             )
             if (res.status !== 201) {
-                alert("There is an error, try again later ")
 
                 throw new Error("Error delete image");
             };

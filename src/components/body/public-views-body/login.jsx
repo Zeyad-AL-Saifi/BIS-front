@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useFormik } from "formik";
 import { Link } from "react-router-dom";
-const Login = ({ handleSubmit, color }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+import { validationSchemaLogin } from "../../../utils/validation/validationSchema";
+import { FormGroup, Form } from "react-bootstrap";
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    localStorage.clear();
-    handleSubmit({ email, password });
-  };
+const Login = ({ handleSubmit, color, error }) => {
+  const formik = useFormik({
+    initialValues: {
+      email: null,
+      password: null,
+    },
+    validationSchema: validationSchemaLogin,
+    onSubmit: (values) => {
+      localStorage.clear();
+      handleSubmit({ email: values.email, password: values.password });
+    },
+  });
+
   return (
     <section className="vh-100 gradient-custom ">
       <div className="container py-5 h-100">
@@ -24,35 +31,41 @@ const Login = ({ handleSubmit, color }) => {
                   <p className="text-white-50 mb-5">
                     Please enter your login and password!
                   </p>
-                  <form onSubmit={onSubmit}>
+                  <Form onSubmit={formik.handleSubmit}>
                     <div className="form-outline form-white mb-4">
-                      <label className="form-label" for="typeEmailX">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="typeEmailX"
-                        value={email}
-                        className="form-control form-control-lg"
-                        onChange={(event) => {
-                          setEmail(event.target.value);
-                        }}
-                      />
+                      <FormGroup>
+                        <Form.Label htmlFor="email">Email :</Form.Label>
+                        <Form.Control
+                          type="email"
+                          name="email"
+                          className="form-control"
+                          id="email"
+                          onChange={formik.handleChange}
+                          value={formik.values.email}
+                          isInvalid={!!formik.errors.email}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                          {formik.errors.email}
+                        </Form.Control.Feedback>
+                      </FormGroup>
                     </div>
 
                     <div className="form-outline form-white mb-4">
-                      <label className="form-label" for="typePasswordX">
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        id="typePasswordX"
-                        value={password}
-                        className="form-control form-control-lg"
-                        onChange={(event) => {
-                          setPassword(event.target.value);
-                        }}
-                      />
+                      <FormGroup>
+                        <Form.Label htmlFor="password">Password :</Form.Label>
+                        <Form.Control
+                          type="password"
+                          name="password"
+                          className="form-control"
+                          id="password"
+                          onChange={formik.handleChange}
+                          value={formik.values.password}
+                          isInvalid={!!formik.errors.password}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                          {formik.errors.password}
+                        </Form.Control.Feedback>
+                      </FormGroup>
                     </div>
 
                     <p className="small mb-5 pb-lg-2">
@@ -70,7 +83,7 @@ const Login = ({ handleSubmit, color }) => {
                     >
                       Login
                     </button>
-                  </form>
+                  </Form>
                 </div>
 
                 <div>

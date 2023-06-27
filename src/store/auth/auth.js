@@ -33,7 +33,7 @@ export const loginTeacher = createAsyncThunk(
             }
             return data;
         } catch (error) {
-            return rejectWithValue(error.message)
+            return rejectWithValue(error)
         }
     })
 
@@ -49,6 +49,7 @@ export const loginStudent = createAsyncThunk(
                     "Content-type": "application/json; charset=UTF-8",
                 }
             });
+
             const data = await res.json();
 
             if (res.status !== 200) {
@@ -59,7 +60,7 @@ export const loginStudent = createAsyncThunk(
 
 
         } catch (error) {
-            return rejectWithValue(error.message)
+            return rejectWithValue({ message: 'error', error })
         }
     })
 
@@ -98,7 +99,6 @@ const authSlice = createSlice({
         builder.addCase(loginTeacher.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
-            alert(state.error);
         })
         //login student
 
@@ -122,9 +122,6 @@ const authSlice = createSlice({
         builder.addCase(loginStudent.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
-
-            alert(state.error);
-
         })
 
 

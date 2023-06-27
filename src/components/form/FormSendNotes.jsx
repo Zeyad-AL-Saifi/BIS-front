@@ -1,28 +1,28 @@
 import { useDispatch } from "react-redux";
 import Check from "../../utils/guard/load/Check";
+
 import { useState } from "react";
 import getFormattedDateTime from "../../hooks/getDate";
 import { addTeacherNote } from "../../store/notes/teacherNotes/teacherNotesSlice";
 import { addStudentNote } from "../../store/notes/studentNotes/studentNotesSlice";
 import CustomDropTeacher from "../public-components/CustomDropdown/CustomDropTeacher";
 import CustomDropStudent from "../public-components/CustomDropdown/CustomDropStudent";
-import CustomAlter from "../../hooks/Alter";
+import { Alert } from "react-bootstrap";
 const FormSendNotes = ({ userInfo, isStudent }) => {
   const [forHow, setForHow] = useState("");
   const [note, setNote] = useState("");
+  const [inputError, setInputError] = useState(false);
+
   const dispatch = useDispatch();
-  const handleSelect = (event) => {
-    const selectedValue = event.target.value;
-    setForHow(selectedValue);
+  const handleSelect = (value) => {
+    setForHow(value);
   };
 
   const date = getFormattedDateTime();
   const handelSubmit = (e) => {
     e.preventDefault();
-    if (!forHow || !note) {
-      alert(
-        "You cannot send without specifying how you want to send it and please write your note"
-      );
+    if (!note) {
+      setInputError(true);
     } else {
       isStudent
         ? dispatch(
@@ -35,8 +35,9 @@ const FormSendNotes = ({ userInfo, isStudent }) => {
               time: date,
             })
           ).then(() => {
-            <CustomAlter error={"Send Note Successfully"} />;
-            // alert("Send Note Successfully 👌😁");
+            alert("Send Note Successfully 👌😁");
+            setInputError(false);
+            setNote("");
           })
         : dispatch(
             addTeacherNote({
@@ -48,8 +49,9 @@ const FormSendNotes = ({ userInfo, isStudent }) => {
               time: date,
             })
           ).then(() => {
-            <CustomAlter error={"Send Note Successfully"} />;
-            // alert("Send Note Successfully 👌😁");
+            alert("Send Note Successfully 👌😁");
+            setInputError(false);
+            setNote("");
           });
     }
   };
@@ -73,9 +75,9 @@ const FormSendNotes = ({ userInfo, isStudent }) => {
               />
             </div>
             {isStudent ? (
-              <CustomDropTeacher handleSelect={handleSelect} />
+              <CustomDropTeacher handleSelect={handleSelect}  />
             ) : (
-              <CustomDropStudent handleSelect={handleSelect} />
+                <CustomDropStudent handleSelect={handleSelect}  />
             )}
             <div className="mb-3">
               <label htmlFor="messageInput" className="form-label">
@@ -93,6 +95,9 @@ const FormSendNotes = ({ userInfo, isStudent }) => {
                 }}
               />
             </div>
+            {inputError && (
+              <Alert variant="danger">Please Enter The Note.</Alert>
+            )}
             <Check>
               <button type="submit" className="btn btn-dark w-100">
                 Submit

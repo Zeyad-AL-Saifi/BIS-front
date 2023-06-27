@@ -39,7 +39,6 @@ export const updateMainText = createAsyncThunk(
             });
             if (res.status !== 201) {
 
-                // alert("There is an error, try again later ")
 
                 throw new Error("Error updating maintext");
             };

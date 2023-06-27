@@ -79,7 +79,6 @@ const passwordSlice = createSlice({
         builder.addCase(forgotThePassword.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
-            alert('invalid email address');
         })
 
 

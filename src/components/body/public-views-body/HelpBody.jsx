@@ -10,8 +10,8 @@ const HelpBody = () => {
             <h1 className="text-center mb-4">Help Page</h1>
             <div className="card">
               <div className="card-body">
-                <h5 className="card-title">FAQs</h5>
-                <p className="card-text">
+                <h5 className="card-title m-3">FAQs</h5>
+                <p className="card-text m-3">
                   Here are some frequently asked questions:
                 </p>
                 <ul className="list-group">

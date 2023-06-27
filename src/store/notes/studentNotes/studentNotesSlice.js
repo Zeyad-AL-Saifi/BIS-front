@@ -40,10 +40,9 @@ export const addStudentNote = createAsyncThunk(
         },
       });
       if (res.status !== 201) {
-        alert("There is an error, try again later ")
 
         throw new Error("Error add note");
-    };
+      };
       const data = await res.json();
       return data;
     } catch (error) {
@@ -87,7 +86,6 @@ export const updateStudentNote = createAsyncThunk(
         }
       );
       if (res.status !== 201) {
-        alert("There is an error, try again later ")
 
         throw new Error("Error updating note");
       };
@@ -106,14 +104,9 @@ export const deleteStudentNote = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
 
     try {
-      const res = await fetch(`${Base_URL}/studentnote/${id}`, {
+      await fetch(`${Base_URL}/studentnote/${id}`, {
         method: "DELETE",
       });
-      if (res.status !== 201) {
-        alert("There is an error, try again later ")
-
-        throw new Error("Error delete note");
-      };
       return id;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -169,10 +162,11 @@ const studentNoteSlice = createSlice({
       state.error = null;
     });
     builder.addCase(deleteStudentNote.fulfilled, (state, action) => {
-      state.loading = false;
+
       state.records = state.records.filter(
         (el) => el.id_student !== action.payload
       );
+      state.loading = false;
     });
     builder.addCase(deleteStudentNote.rejected, (state, action) => {
       state.loading = false;
