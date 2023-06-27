@@ -24,12 +24,13 @@ const StudentForm = () => {
       email: "",
     },
     validationSchema: registerSchemaStudents,
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       values.student_image = image;
       dispatch(registrationStudents(values))
         .then((action) => {
           const message = action.payload.message;
           alert(message);
+          resetForm();
         })
         .catch((error) => {
           alert(error);
@@ -191,7 +192,7 @@ const StudentForm = () => {
               (error, result) => {
                 if (!error && result && result.event === "success") {
                   const imagePath = result.info.secure_url;
-                  setimage(imagePath)
+                  setimage(imagePath);
                 }
               }
             );

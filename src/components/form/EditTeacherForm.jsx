@@ -9,7 +9,6 @@ import {
 } from "../../store/profile/teachers/teachersSlice";
 import FormGroup from "./FormGroup";
 import { updateTeacherSchema } from "../../utils/validation/validationSchema";
-
 const EditTeacherForm = ({ item, handleCloseModal }) => {
   const dispatch = useDispatch();
   const formik = useFormik({
@@ -124,11 +123,6 @@ const EditTeacherForm = ({ item, handleCloseModal }) => {
             {formik.errors.is_admin}
           </Form.Control.Feedback>
         </Form.Label>
-      </FormGroup>
-
-      <FormGroup>
-        <Form.Label htmlFor="file">Upload Image :</Form.Label>
-        <Form.Control type="file" className="form-control-file" id="file" />
       </FormGroup>
       <Button className="w-100" variant="primary" type="submit">
         Save Changes

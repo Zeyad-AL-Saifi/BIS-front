@@ -4,6 +4,7 @@ import NewsItemsManager from "../news-component/NewsItemManager";
 import { deleteNews, getAllNews } from "../../../store/Home/news/newsSlice";
 
 import "../../../utils/css/NewsContainer.css";
+import TitleSections from "../../public-components/TitleSections";
 const NewsContainerManager = () => {
   const { loading, error, records } = useSelector((state) => state.news);
   const dispatch = useDispatch();
@@ -14,9 +15,11 @@ const NewsContainerManager = () => {
   const deleteData = useCallback((id) => dispatch(deleteNews(id)), [dispatch]);
 
   return (
-    <div>
-      <h3>Manage the news from here</h3>
-      <p>Add new news or update or delete the news ℹ️</p>
+    <div className="py-3">
+      <TitleSections
+        title={"Manage the news from here"}
+        content={"Add new news or update or delete the news ℹ️"}
+      />
       <NewsItemsManager
         error={error}
         loading={loading}

@@ -2,18 +2,25 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Login from "../../components/body/public-views-body/login";
 import { loginTeacher } from "../../store/auth/auth";
-import Check from "../../utils/guard/load/Check";
 const TeacherLoginView = () => {
   const { loading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const handleSubmit = (item) => {
-    dispatch(loginTeacher(item));
+    dispatch(loginTeacher(item))
+      .then((action) => {
+        const message = action.payload.message;
+        alert(message);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
   return (
-    <Check loading={loading}>
-      <Login handleSubmit={handleSubmit} color={"#92D053"} />;
-    </Check>
+    <>
+    
+      <Login handleSubmit={handleSubmit} color={"#92D053"} loading={loading} />;
+    </>
   );
 };
 

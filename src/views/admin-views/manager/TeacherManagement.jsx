@@ -8,9 +8,10 @@ import {
 } from "../../../store/profile/teachers/teachersSlice";
 
 import ProfileCardCompo from "../../../components/admin-components/profile-component/ProfileCardCompo";
+import TitleSections from "../../../components/public-components/TitleSections";
 
 const TeacherManagement = () => {
-  const { loading, error, records } = useSelector((state) => state.teachers);
+  const { records } = useSelector((state) => state.teachers);
   const [filterUsers, setFilterUsers] = useState([]);
   const [value, setValue] = useState("");
 
@@ -42,14 +43,16 @@ const TeacherManagement = () => {
   );
 
   return (
-<div>      <FilterForm handelInput={handelInput} />
+    <div>
+      {" "}
+      <FilterForm handelInput={handelInput} />
       <div>
-        <h3>You can manage the teacher from here </h3>
-        <p>
-          You can modify the teachers' information or cancel one of them's
-          account ℹ
-        </p>
-        <p>Remember the yellow card is Admin Account 👌</p>
+        <TitleSections
+          title={"You can manage the teacher informaions from here ℹ️"}
+          content={
+            " You can modify the teachers' information or cancel one of them's account "
+          }
+        />
       </div>
       <ProfileCardCompo records={filterUsers} handelDelete={handelDelete} />
     </div>

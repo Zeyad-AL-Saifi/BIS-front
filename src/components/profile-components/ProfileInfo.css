@@ -1,0 +1,12 @@
+.img-container {
+    height: 200px;
+    max-width: 200px;
+    background-image: image-set("https://picsum.photos/200/200");
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 200px;
+    max-width: 200px;
+    margin: 0 auto;
+
+}

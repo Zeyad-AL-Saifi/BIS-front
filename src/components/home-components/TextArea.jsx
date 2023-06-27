@@ -1,8 +1,6 @@
-import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getMainText } from "../../store/Home/main-text/mainTextSlice";
-
 import "../../utils/css/homeContent.css";
 import Check from "../../utils/guard/load/Check";
 const TextArea = () => {
@@ -21,10 +19,9 @@ const TextArea = () => {
   });
   return (
     <Check loading={loading} error={error}>
-      {" "}
       <div>
-        <div className="container  p-4">
-          <h2>Welcome to our school</h2>
+        <div className="container py-4">
+          <h2>Welcome to our school 😉 (B-I-S)</h2>
           <div> {data}</div>
         </div>
       </div>

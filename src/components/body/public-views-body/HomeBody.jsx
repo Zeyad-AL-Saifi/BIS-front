@@ -7,14 +7,11 @@ const HomeBody = () => {
   return (
     <div>
       <ImageSlider />
+      <hr />
       <TextArea />
-      <NewsContainer
-        display={false}
-        title={"Read all news 👌 "}
-        content={
-          "Here you will find all the exclusive news and events taking place within the organization"
-        }
-      />
+      <hr />
+      <NewsContainer />
+      <hr />
     </div>
   );
 };

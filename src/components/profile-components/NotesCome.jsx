@@ -9,7 +9,7 @@ const NotesCome = ({ filteredData, handleDelete }) => {
   return (
     <>
       <div className="col notes  ">
-        <h3 className="row ">Notes come For you : ℹ️</h3>
+        <h3 className="row ">Notes come for you : ℹ️</h3>
         <div className="row" style={{ justifyContent: "space-around" }}>
           {data}
         </div>

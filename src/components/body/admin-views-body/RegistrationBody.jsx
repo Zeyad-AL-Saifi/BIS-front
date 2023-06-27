@@ -1,9 +1,9 @@
-
 import { useState } from "react";
 
-import TeacherForm from "../../form/TeacherForm"
-import StudentForm from "../../form/StudentForm"
-const RegistrationBody = ( ) => {
+import TeacherForm from "../../form/TeacherForm";
+import StudentForm from "../../form/StudentForm";
+import TitleSections from "../../public-components/TitleSections";
+const RegistrationBody = () => {
   const [userType, setUserType] = useState("student");
 
   const handleUserTypeChange = (event) => {
@@ -13,7 +13,12 @@ const RegistrationBody = ( ) => {
   return (
     <div>
       <div className="m-4" style={{ minHeight: "670px" }}>
-        <h4> ⚡ Choose who you want to register as a teacher or a student !</h4>
+        <TitleSections
+          title={
+            " Choose who you want to register as a teacher or a student !⚡"
+          }
+        />
+ 
         <div className="form-switch">
           <label>
             <h5>
@@ -44,9 +49,7 @@ const RegistrationBody = ( ) => {
         </div>
         <hr className="rounded" />
 
-        {userType === "teacher" && (
-          <TeacherForm  />
-        )}
+        {userType === "teacher" && <TeacherForm />}
         {userType === "student" && <StudentForm />}
       </div>
     </div>

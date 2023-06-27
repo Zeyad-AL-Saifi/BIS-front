@@ -7,8 +7,8 @@ const ProfileInfo = ({ userInfo }) => {
         <div className="col-lg-6">
           <div className="card">
             <div className="card-body m-3">
-              <h2 className="card-title">{userInfo.full_name.toUpperCase()}</h2>
-              <p className="card-text">Address: {userInfo.address}</p>
+              <h1 className="card-title">{userInfo.full_name.toUpperCase()}</h1>
+              <hr /> <p className="card-text">Address: {userInfo.address}</p>
               <p className="card-text">
                 Mobile Number: {userInfo.mobile_number}
               </p>
@@ -37,12 +37,16 @@ const ProfileInfo = ({ userInfo }) => {
             </div>
           </div>
         </div>
-        <div className="col-lg-6">
-          <div style={{ maxWidth: "200px", margin: "0 auto" }}>
+        <div className="col-lg-6 ">
+          <div className="rounded-circle bg-light border img-container">
             <img
-              src="https://picsum.photos/200/200"
+              src={
+                userInfo.student_image
+                  ? userInfo.student_image
+                  : userInfo.teacher_image
+              }
               className="card-img-top rounded-circle img-fluid"
-              alt="Profile"
+              alt=""
               style={{ width: "100%", height: "auto" }}
             />
           </div>

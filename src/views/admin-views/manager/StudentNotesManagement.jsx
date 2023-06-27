@@ -8,7 +8,7 @@ import {
 } from "../../../store/notes/studentNotes/studentNotesSlice";
 import NoteManageBody from "../../../components/admin-components/note-component/NoteManageBody";
 const StudentNotesManagement = () => {
-  const { records} = useSelector((state) => state.studentnote);
+  const { records } = useSelector((state) => state.studentnote);
 
   const [filterNote, setfilterNote] = useState([]);
   const [value, setValue] = useState("");
@@ -35,21 +35,25 @@ const StudentNotesManagement = () => {
 
   const handelDelete = useCallback(
     (id) => {
-      dispatch(deleteStudentNote(id)).then(dispatch(getAllStudentNote()));
+      dispatch(deleteStudentNote(id)).then(() => {
+        dispatch(getAllStudentNote());
+      });
     },
     [dispatch]
   );
   const handelUpdateStatusCode = (item) => {
-    dispatch(updateStudentNote(item)).then(dispatch(getAllStudentNote()));
+    dispatch(updateStudentNote(item)).then(() => {
+      dispatch(getAllStudentNote());
+    });
   };
-  
+
   return (
     <div>
       <NoteManageBody
         handelInput={handelInput}
         handelDelete={handelDelete}
         handelUpdateStatusCode={handelUpdateStatusCode}
-        title={"Students Notes Table 🙌"}
+        title={"Students Notes Table 📝"}
         filterNote={filterNote}
       />
     </div>

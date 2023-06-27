@@ -1,9 +1,9 @@
-
 import React, { useState } from "react";
 
-import NoteInTable from './NoteInTable'
-import FilterForm from '../public/filterForm'
-import NoteShowModal from '../../modals/NoteShowModal'
+import NoteInTable from "./NoteInTable";
+import FilterForm from "../public/filterForm";
+import NoteShowModal from "../../modals/NoteShowModal";
+import TitleSections from "../../public-components/TitleSections";
 const NoteManageBody = ({
   filterNote,
   title,
@@ -62,7 +62,12 @@ const NoteManageBody = ({
         <thead>
           <tr>
             <th>
-              <h2>{title}</h2>
+              <TitleSections
+                title={title}
+                content={
+                  "You can show the note and you have the license to accept or reject it "
+                }
+              />
             </th>
           </tr>
         </thead>

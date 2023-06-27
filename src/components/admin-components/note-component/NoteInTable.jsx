@@ -1,4 +1,3 @@
-import { memo } from "react";
 
 const NoteInTable = ({
   ele,
@@ -44,4 +43,4 @@ const NoteInTable = ({
   );
 };
 
-export default memo(NoteInTable);
+export default NoteInTable;

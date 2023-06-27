@@ -7,8 +7,9 @@ import {
   getAllHomeImage,
 } from "../../../../store/Home/images/homeImageSlice";
 import "./ImageComp.css";
+import TitleSections from "../../../public-components/TitleSections";
 const ImageComp = () => {
-  const {records } = useSelector((state) => state.homeimage);
+  const { records } = useSelector((state) => state.homeimage);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -58,14 +59,15 @@ const ImageComp = () => {
 
   return (
     <div>
-      <div className="m-4">
+      <div className="py-3">
         <div className="container  w-100">
-          <h3> Home Images Slider</h3>
-          <p>
-            You can change images on the home page in here but it must be
-            included three images only click on any image you want to change it
-            ℹ️
-          </p>
+          <TitleSections
+            title={"Home Images Slider"}
+            content={
+              "You can change images on the home page in here but it must be included three images only click on any image you want to change it ℹ️"
+            }
+          />
+
           <div className="row">
             {data}
             <div className="custom-input col m-3">

@@ -8,6 +8,7 @@ import {
 
 import FilterForm from "../../../components/admin-components/public/filterForm";
 import ProfileCardCompo from "../../../components/admin-components/profile-component/ProfileCardCompo";
+import TitleSections from "../../../components/public-components/TitleSections";
 const StudentManagement = () => {
   const { records } = useSelector((state) => state.students);
   const [filterUsers, setFilterUsers] = useState([]);
@@ -45,11 +46,12 @@ const StudentManagement = () => {
       <div>
         <FilterForm handelInput={handelInput} />
         <div>
-          <h3>You can manage the student from here </h3>
-          <p>
-            You can modify the students' information or cancel one of them's
-            account ℹ
-          </p>
+          <TitleSections
+            title={"You can manage the student informaions from here ℹ️"}
+            content={
+              " You can modify the students' information or cancel one of them's account  "
+            }
+          />
         </div>
         <ProfileCardCompo
           user={"std"}

@@ -26,11 +26,6 @@ export const loginTeacher = createAsyncThunk(
                 }
             });
             const data = await res.json();
-
-            if (res.status !== 200) {
-                throw new Error(data.error)
-            } else {
-            }
             return data;
         } catch (error) {
             return rejectWithValue(error)
@@ -51,11 +46,6 @@ export const loginStudent = createAsyncThunk(
             });
 
             const data = await res.json();
-
-            if (res.status !== 200) {
-                throw new Error(data.error)
-            } else {
-            }
             return data;
 
 
@@ -100,6 +90,11 @@ const authSlice = createSlice({
             state.loading = false;
             state.error = action.payload;
         })
+
+
+
+
+        
         //login student
 
         builder.addCase(loginStudent.pending, (state, action) => {

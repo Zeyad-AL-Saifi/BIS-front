@@ -14,6 +14,7 @@ const TeacherBody = ({ userInfo }) => {
   useEffect(() => {
     dispatch(getAllStudentNote());
   }, [dispatch]);
+  
   const handleDelete = (id) => {
     dispatch(
       deleteStudentNote(id).then(() => {

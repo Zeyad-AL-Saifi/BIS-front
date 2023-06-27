@@ -55,9 +55,7 @@ export const updateMainText = createAsyncThunk(
 const mainTextSlice = createSlice({
     name: "maintext",
     initialState,
-    reducers: {
-        cleanRecord: (state) => { state.record = null }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         //get the text
         builder.addCase(getMainText.pending, (state, action) => {

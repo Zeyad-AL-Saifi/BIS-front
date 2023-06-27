@@ -24,12 +24,13 @@ const TeacherForm = () => {
       teacher_image: "",
     },
     validationSchema: registerSchemaTeacher,
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       values.teacher_image = image;
       dispatch(registrationTeacher(values))
         .then((action) => {
           const message = action.payload.message;
           alert(message);
+          resetForm();
         })
         .catch((error) => {
           alert(error.message);

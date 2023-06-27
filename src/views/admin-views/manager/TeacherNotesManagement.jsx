@@ -36,22 +36,25 @@ const TeacherNotesManagement = () => {
 
   const handelDelete = useCallback(
     (id) => {
-      dispatch(deleteTeacherNote(id)).then(dispatch(getAllTeacherNote()));
+      dispatch(deleteTeacherNote(id)).then(() => {
+        dispatch(getAllTeacherNote());
+      });
     },
     [dispatch]
   );
   const handelUpdateStatusCode = (item) => {
-    dispatch(updateTeacherNote(item)).then(dispatch(getAllTeacherNote()));
+    dispatch(updateTeacherNote(item)).then(() => {
+      dispatch(getAllTeacherNote());
+    });
   };
   return (
     <div>
       <div>
-        
         <NoteManageBody
           handelInput={handelInput}
           handelDelete={handelDelete}
           handelUpdateStatusCode={handelUpdateStatusCode}
-          title={"Teacher Notes Table 🙌"}
+          title={"Teacher Notes Table 📝"}
           filterNote={filterNote}
         />
       </div>

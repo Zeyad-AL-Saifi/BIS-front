@@ -108,10 +108,6 @@ const EditStudentForm = ({ item, handleCloseModal }) => {
           {formik.errors.email}
         </Form.Control.Feedback>
       </FormGroup>
-      <FormGroup>
-        <Form.Label htmlFor="file"> Upload Image :</Form.Label>
-        <Form.Control type="file" className="form-control-file" id="file" />
-      </FormGroup>
       <Button className="w-100" variant="primary" type="submit">
         Save Changes
       </Button>

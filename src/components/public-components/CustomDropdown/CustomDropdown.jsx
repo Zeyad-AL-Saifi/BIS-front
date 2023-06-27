@@ -39,7 +39,7 @@ const CustomDropdown = ({ handleSelect, records, formName }) => {
         type="text"
         value={value}
         onChange={handleChange}
-        placeholder="Search name"
+        placeholder="Search name..."
         className="form-control"
       />
       <Form.Select
@@ -48,7 +48,7 @@ const CustomDropdown = ({ handleSelect, records, formName }) => {
         onChange={handelSubmit}
       >
         <option disabled selected>
-          Select name ...
+          Choose the name you want to send ...
         </option>
         {filteredOptions.map((option, index) => (
           <option key={index} value={option}>

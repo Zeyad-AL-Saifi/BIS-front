@@ -90,7 +90,6 @@ export const updateStudents = createAsyncThunk(
                     mobile_number: item.mobile_number,
                     class_number: item.class_number,
                     email: item.email,
-                    student_image: "ss"
 
                 }),
                 headers: {

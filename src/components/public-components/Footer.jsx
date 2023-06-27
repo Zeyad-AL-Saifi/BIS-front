@@ -1,12 +1,11 @@
 import React from "react";
-
 const Footer = () => {
   return (
     <footer className="bg-dark text-white text-center text-lg-start">
       <div className="container p-4">
         <div className="row">
           <div className="col-lg-6 col-md-12 mb-4 mb-md-0">
-            <h5 className="text-uppercase"> At our special school</h5>
+            <h5 className="text-uppercase"> At our special school ℹ️</h5>
 
             <p>
               we are dedicated to providing a nurturing and inclusive learning
@@ -21,7 +20,7 @@ const Footer = () => {
           </div>
 
           <div className="col-lg-6 col-md-12 mb-4 mb-md-0">
-            <h5 className="text-uppercase">Welcome to Our Special School</h5>
+            <h5 className="text-uppercase">Welcome to Our School ℹ️</h5>
 
             <p>
               We take pride in being a special school that caters to the diverse
@@ -42,7 +41,7 @@ const Footer = () => {
         className="text-center p-3"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
-        © 2020 Copyright : Zeyad Al-Saifi
+        © {new Date().getFullYear()} Copyright : Zeyad Al-Saifi
       </div>
     </footer>
   );
