@@ -32,3 +32,6 @@ users account for test
 admin ==>admin@gmail.com /admin1234
  ==>ziad@gmail.com /12345678
  ==>yos2@gmail.com/zzzzzzzz
+
+the project upload the images for outsite server (cloudinary)
+if you got any error in image please tell me 
