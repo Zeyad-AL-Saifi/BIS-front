@@ -30,5 +30,5 @@
 
 users account for test 
 admin ==>admin@gmail.com /admin1234
-teacher ==>ziad@gmail.com /12345678
-student ==>yos2@gmail.com/zzzzzzzz
+ ==>ziad@gmail.com /12345678
+ ==>yos2@gmail.com/zzzzzzzz
