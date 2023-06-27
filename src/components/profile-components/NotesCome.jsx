@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import "./ProfileInfo.css";
 import NoteCard from "../public-components/NoteCard/NoteCard";
 

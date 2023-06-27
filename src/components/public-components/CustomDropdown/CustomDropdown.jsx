@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
-import ErrorModal from "../../modals/ErrorModal";
 
 const CustomDropdown = ({ handleSelect, records, formName }) => {
   const [value, setValue] = useState("");
