@@ -1,5 +1,6 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
+import SmallBtn from "../public-components/Buttons/SmallBtn";
 
 const NoteShowModal = ({ item, showModal, handleCloseModal }) => {
   return (
@@ -12,9 +13,11 @@ const NoteShowModal = ({ item, showModal, handleCloseModal }) => {
           <p>{item.note}</p>
         </Modal.Body>
         <Modal.Footer>
-          <button className="btn btn-secondary" onClick={handleCloseModal}>
-            Close
-          </button>
+          <SmallBtn
+            handleClick={handleCloseModal}
+            color={"secondary"}
+            text={"Close"}
+          />
         </Modal.Footer>
       </Modal>
     </div>

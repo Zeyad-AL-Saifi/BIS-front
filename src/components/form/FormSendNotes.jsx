@@ -8,6 +8,7 @@ import { addStudentNote } from "../../store/notes/studentNotes/studentNotesSlice
 import CustomDropTeacher from "../public-components/CustomDropdown/CustomDropTeacher";
 import CustomDropStudent from "../public-components/CustomDropdown/CustomDropStudent";
 import { Alert } from "react-bootstrap";
+import PrimaryBtn from "../public-components/Buttons/PrimaryBtn";
 const FormSendNotes = ({ userInfo, isStudent }) => {
   const [forHow, setForHow] = useState("");
   const [note, setNote] = useState("");
@@ -75,9 +76,9 @@ const FormSendNotes = ({ userInfo, isStudent }) => {
               />
             </div>
             {isStudent ? (
-              <CustomDropTeacher handleSelect={handleSelect}  />
+              <CustomDropTeacher handleSelect={handleSelect} />
             ) : (
-                <CustomDropStudent handleSelect={handleSelect}  />
+              <CustomDropStudent handleSelect={handleSelect} />
             )}
             <div className="mb-3">
               <label htmlFor="messageInput" className="form-label">
@@ -98,11 +99,8 @@ const FormSendNotes = ({ userInfo, isStudent }) => {
             {inputError && (
               <Alert variant="danger">Please Enter The Note.</Alert>
             )}
-            <Check>
-              <button type="submit" className="btn btn-dark w-100">
-                Submit
-              </button>
-            </Check>
+
+            <PrimaryBtn type={"submit"} text={"Submit"} />
           </form>
         </div>
       </div>

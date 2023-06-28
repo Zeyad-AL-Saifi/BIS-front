@@ -2,12 +2,14 @@ import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import { Button, Form } from "react-bootstrap";
 
-import { getAllStudents, updateStudents } from '../../store/profile/students/studentsSlice'
-import FormGroup from './FormGroup'
-import {updateStudentsSchema} from '../../utils/validation/validationSchema'
+import {
+  getAllStudents,
+  updateStudents,
+} from "../../store/profile/students/studentsSlice";
+import FormGroup from "./FormGroup";
+import { updateStudentsSchema } from "../../utils/validation/validationSchema";
 const EditStudentForm = ({ item, handleCloseModal }) => {
   const dispatch = useDispatch();
-
 
   const formik = useFormik({
     initialValues: item,
@@ -38,7 +40,6 @@ const EditStudentForm = ({ item, handleCloseModal }) => {
           id="name"
           onChange={formik.handleChange}
           value={formik.values.full_name}
-           
         />
         <Form.Control.Feedback type="invalid">
           {formik.errors.full_name}
@@ -108,6 +109,7 @@ const EditStudentForm = ({ item, handleCloseModal }) => {
           {formik.errors.email}
         </Form.Control.Feedback>
       </FormGroup>
+
       <Button className="w-100" variant="primary" type="submit">
         Save Changes
       </Button>

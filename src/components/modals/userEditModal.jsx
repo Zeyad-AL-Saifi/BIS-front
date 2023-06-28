@@ -1,7 +1,8 @@
 import React from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import EditTeacherForm from "../form/EditTeacherForm";
 import EditStudentForm from "../form/EditStudentForm";
+import SmallBtn from "../public-components/Buttons/SmallBtn";
 
 const UserEditModal = ({ user, handleCloseModal, showModal, item }) => {
   return (
@@ -18,9 +19,11 @@ const UserEditModal = ({ user, handleCloseModal, showModal, item }) => {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Close
-          </Button>
+          <SmallBtn
+            handleClick={handleCloseModal}
+            color={"secondary"}
+            text={"Close"}
+          />
         </Modal.Footer>
       </Modal>
     </div>

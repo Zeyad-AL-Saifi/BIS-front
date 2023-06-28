@@ -6,6 +6,7 @@ import {
   updateMainText,
 } from "../../../store/Home/main-text/mainTextSlice";
 import TitleSections from "../../public-components/TitleSections";
+import PrimaryBtn from "../../public-components/Buttons/PrimaryBtn";
 
 const TextComp = () => {
   const { record, loading, error } = useSelector((state) => state.maintext);
@@ -63,9 +64,7 @@ const TextComp = () => {
           )}
           <br />
           <Check loading={loading} error={error}>
-            <button type="submit" className="btn btn-dark w-100 p-3">
-              Submit
-            </button>
+            <PrimaryBtn type={"submit"} text={"Submit"} />
           </Check>
         </form>
       </div>

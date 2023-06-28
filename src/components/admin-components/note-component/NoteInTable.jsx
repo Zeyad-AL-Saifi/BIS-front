@@ -1,3 +1,4 @@
+import SmallBtn from "../../public-components/Buttons/SmallBtn";
 
 const NoteInTable = ({
   ele,
@@ -21,23 +22,19 @@ const NoteInTable = ({
         </h5>
       </td>
       <td>
-        <button
-          className="btn btn-success m-1"
-          onClick={handelUpdateStatusCode}
-        >
-          Accept
-        </button>
-        <button
-          className="btn btn-primary m-1"
-          onClick={() => {
+        <SmallBtn
+          handleClick={handelUpdateStatusCode}
+          text={"Accept"}
+          color={"success"}
+        />
+        <SmallBtn
+          handleClick={() => {
             handleShowModal(ele);
           }}
-        >
-          Show
-        </button>
-        <button className="btn btn-danger m-1" onClick={handelDelete}>
-          Reject
-        </button>
+          text={"Show"}
+          color={"primary"}
+        />
+        <SmallBtn handleClick={handelDelete} text={"Reject"} color={"danger"} />
       </td>
     </tr>
   );

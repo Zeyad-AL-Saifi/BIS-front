@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import {  Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { addNews, getAllNews } from "../../store/Home/news/newsSlice";
+import SmallBtn from "../public-components/Buttons/SmallBtn";
 const NewsModal = ({ showModal, handleCloseModal }) => {
   const dispatch = useDispatch();
 
@@ -62,9 +63,11 @@ const NewsModal = ({ showModal, handleCloseModal }) => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Close
-          </Button>
+          <SmallBtn
+            color={"secondary"}
+            handleClick={handleCloseModal}
+            text={"Close"}
+          />
         </Modal.Footer>
       </Modal>
     </div>

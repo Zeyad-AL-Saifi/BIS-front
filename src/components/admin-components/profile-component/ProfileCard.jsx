@@ -1,5 +1,6 @@
 import { memo } from "react";
 import logo from "../../../assets/images/admin-icon.jpg";
+import SmallBtn from "../../public-components/Buttons/SmallBtn";
 const ProfileCard = ({ handleShowModal, ele, handelDelete, index }) => {
   return (
     <div
@@ -9,7 +10,7 @@ const ProfileCard = ({ handleShowModal, ele, handelDelete, index }) => {
     >
       <img
         style={{ width: "357px", height: "350px" }}
-        src={ele.student_image ||ele.teacher_image}
+        src={ele.student_image || ele.teacher_image}
         className="card-img-top"
         alt="Your"
       />
@@ -22,7 +23,13 @@ const ProfileCard = ({ handleShowModal, ele, handelDelete, index }) => {
               <img
                 alt=""
                 src={logo}
-                style={{ position: "absolute", top: 0, right: 0  ,width:'50px' ,margin:'10px'}}
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  right: 0,
+                  width: "50px",
+                  margin: "10px",
+                }}
               />
             ) : (
               ""
@@ -42,15 +49,20 @@ const ProfileCard = ({ handleShowModal, ele, handelDelete, index }) => {
         <h6 className="card-title p-y-2">Address : {ele.address}</h6>
         <h6 className="card-title p-y-2">Mobile number: {ele.mobile_number}</h6>
         <h6 className="card-title p-y-2">Email : {ele.email}</h6>
-        <button className="btn btn-danger w-50 " onClick={() => handelDelete()}>
-          Delete
-        </button>
-        <button
-          className="btn btn-success w-50"
-          onClick={() => handleShowModal(ele)}
-        >
-          Edit
-        </button>
+        <div className="d-flex">
+          <SmallBtn
+            handleClick={() => handelDelete()}
+            text={"Delete"}
+            color={"danger"}
+            className={"w-50"}
+          />
+          <SmallBtn
+            handleClick={() => handleShowModal(ele)}
+            text={"Edit"}
+            color={"success"}
+            className={"w-50"}
+          />
+        </div>
       </div>
     </div>
   );
