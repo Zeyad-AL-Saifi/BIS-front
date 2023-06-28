@@ -4,7 +4,21 @@
 
 
 1- for run the project (npm i) then (npm start)
-2- project run in port (300)
+2- project run in port (3000)
+
+
+
+
+users account for test 
+admin ==>admin@gmail.com /admin1234
+ ==>ziad@gmail.com /12345678
+ ==>yos2@gmail.com/zzzzzzzz
+
+the project upload the images for outsite server (cloudinary)
+if you got any error in image please tell me 
+
+
+
 3- the packers that i used     
     "@emotion/css": "^11.11.2",
     "@emotion/react": "^11.11.1",
@@ -30,13 +44,3 @@
     "redux-thunk": "^2.4.2",
     "web-vitals": "^2.1.4",
     "yup": "^1.2.0"  
-
-
-
-users account for test 
-admin ==>admin@gmail.com /admin1234
- ==>ziad@gmail.com /12345678
- ==>yos2@gmail.com/zzzzzzzz
-
-the project upload the images for outsite server (cloudinary)
-if you got any error in image please tell me 
