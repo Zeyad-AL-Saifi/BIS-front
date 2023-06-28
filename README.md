@@ -1,4 +1,9 @@
-1- for run the project (npm start)
+
+![Screenshot (47)](https://github.com/Zeyad-AL-Saifi/bis-front/assets/90261049/cfe234cf-c547-4a72-9bc1-db4037bf1746)
+
+
+
+1- for run the project (npm i) then (npm start)
 2- project run in port (300)
 3- the packers that i used     
     "@emotion/css": "^11.11.2",
@@ -30,5 +35,8 @@
 
 users account for test 
 admin ==>admin@gmail.com /admin1234
-teacher ==>ziad@gmail.com /12345678
-student ==>yos2@gmail.com/zzzzzzzz
+ ==>ziad@gmail.com /12345678
+ ==>yos2@gmail.com/zzzzzzzz
+
+the project upload the images for outsite server (cloudinary)
+if you got any error in image please tell me 
