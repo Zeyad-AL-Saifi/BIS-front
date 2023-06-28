@@ -3,7 +3,7 @@
 
 
 
-1- for run the project (npm start)
+1- for run the project (npm i) then (npm start)
 2- project run in port (300)
 3- the packers that i used     
     "@emotion/css": "^11.11.2",
